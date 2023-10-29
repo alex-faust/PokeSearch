@@ -1,4 +1,4 @@
-package com.example.pokesearch.pokemoninfo
+package com.example.pokesearch.ui.pokemoninfo
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,8 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.pokesearch.base.BaseFragment
-import com.example.pokesearch.base.BaseViewModel
 import com.example.pokesearch.databinding.PokemonInfoFragmentBinding
 
 class PokemonInfoFragment : Fragment() {

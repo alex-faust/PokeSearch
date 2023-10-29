@@ -1,34 +1,29 @@
 package com.example.pokesearch.database
 
-import androidx.lifecycle.map
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import com.example.pokesearch.model.Move
+import android.content.Context
+import androidx.room.Database
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.example.pokesearch.model.Pokemon
 
-/*@Entity
-data class PokemonDatabase(
-    @PrimaryKey
-    val name: String,
-    val dexNum: Int,
-    val types: ArrayList<String?>,
-    val abilities: ArrayList<String?>,
-    val moves: ArrayList<Move>,
-    val sprite: String,
-    val stats: ArrayList<String?>
-)*/
+@Database(entities = [Pokemon::class], version = 1, exportSchema = false)
+abstract class PokemonDatabase: RoomDatabase() {
+    abstract val pokemonDao: PokemonDao
+}
 
-/*
-fun PokemonDatabase.asDomainModel(): Pokemon {
-    return map {
-        Pokemon(
-            name = it.name,
-            dexNum = it.dexNum,
-            types = it.types,
-            abilities = it.abilities,
-            moves = it.moves,
-            sprite = it.sprite,
-            stats = it.stats
-        )
+@Volatile
+private lateinit var INSTANCE: PokemonDatabase
+
+fun getDatabase(context: Context): PokemonDatabase {
+    synchronized(Pokemon::class.java) {
+        if (!::INSTANCE.isInitialized) {
+            INSTANCE = Room.databaseBuilder(
+                context.applicationContext,
+                PokemonDatabase::class.java, "pokemon.DB"
+            ).build()
+        }
     }
-}*/
+    return INSTANCE
+}
+
+

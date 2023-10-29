@@ -1,4 +1,4 @@
-package com.example.pokesearch.results
+package com.example.pokesearch.ui.results
 
 import android.os.Bundle
 import android.view.LayoutInflater

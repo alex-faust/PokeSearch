@@ -5,7 +5,7 @@
     <data>
         <variable
             name="advancedViewModel"
-            type="com.example.pokesearch.search.AdvancedSearchViewModel" />
+            type="com.example.pokesearch.ui.search.AdvancedSearchViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

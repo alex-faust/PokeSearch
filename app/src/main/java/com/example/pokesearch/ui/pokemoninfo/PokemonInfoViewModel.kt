@@ -1,13 +1,10 @@
-package com.example.pokesearch.pokemoninfo
+package com.example.pokesearch.ui.pokemoninfo
 
-import android.app.Application
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pokesearch.api.PokemonApi
-import com.example.pokesearch.base.BaseViewModel
 import com.example.pokesearch.model.Pokemon
 import com.example.pokesearch.utils.parsePokemonJsonResult
 import kotlinx.coroutines.launch

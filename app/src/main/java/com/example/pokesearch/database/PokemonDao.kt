@@ -1,51 +1,47 @@
 package com.example.pokesearch.database
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Database
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import androidx.room.Upsert
+import com.example.pokesearch.model.Pokemon
+import com.example.pokesearch.utils.TypesConverters
 
 @Dao
 interface PokemonDao {
 
-    //@Query("")
-    //fun getPokemon
+    @Query("select * FROM pokemon WHERE name = :name")
+    fun getPokemonByName(name: String): LiveData<Pokemon>
 
-    /*
-    @Query("select * FROM asteroiddatabase WHERE closeApproachDate > :currentDate ORDER BY closeApproachDate ASC")
-    fun getWeeksAsteroids(currentDate: String): LiveData<List<AsteroidDatabase>>
+    @Query("delete from pokemon")
+    fun deleteAllPokemonFromDB()
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(vararg asteroids: AsteroidDatabase)
+    //TODO look up @Upsert
+    //TODO look up Flow. it's an observable that lets you know the changes like live data
 
-    @Query("delete from asteroiddatabase")
-    fun removeAllAsteroidsFromDB()
+    //@Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Upsert
+    fun insertPokemon(pokemon: Pokemon)
 
-    @Query("select * from asteroiddatabase where closeApproachDate = :currentDate")
-    fun getTodayAsteroids(currentDate: String): LiveData<List<AsteroidDatabase>>
+    //type queries
+    //select all pokemon where type1 is X or type 2 is x
+    //select all pokemon where type 1 is x and type 2 is x
 
-    @Query("select * FROM asteroiddatabase WHERE closeApproachDate >= :currentDate ORDER BY closeApproachDate ASC")
-    fun getSavedAsteroids(currentDate: String): LiveData<List<AsteroidDatabase>>
-     */
+    //ability queries
+    //select all pokemon where ability is x
+
+    //moves queries
+    //select all pokemon where move is x
+
+    //stats queries
+    //select all pokemon where specific stat is x
+    //select all pokemon where specific stat is > x
+
 }
-
-/*
-@Database(entities = [PokemonDatabase::class], version = 1)
-abstract class DatabasePokemon: RoomDatabase() {
-    abstract val pokemonDao: PokemonDao
-}
-
-private lateinit var INSTANCE: DatabasePokemon
-
-fun getDatabase(context: Context): DatabasePokemon {
-    synchronized(DatabasePokemon::class.java) {
-        if (!::INSTANCE.isInitialized) {
-            INSTANCE = Room.databaseBuilder(
-                context.applicationContext,
-                DatabasePokemon::class.java, "pokemonDB"
-            ).build()
-        }
-    }
-    return INSTANCE
-}*/

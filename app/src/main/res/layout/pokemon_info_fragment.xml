@@ -5,7 +5,7 @@
     <data>
         <variable
             name="pokemonViewModel"
-            type="com.example.pokesearch.pokemoninfo.PokemonInfoViewModel" />
+            type="com.example.pokesearch.ui.pokemoninfo.PokemonInfoViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,11 +18,10 @@
             android:layout_height="191dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="104dp"
-            app:spriteUrl="@{pokemonViewModel.pokemon.sprite}"
+            android:contentDescription="@{`A picture of ` + pokemonViewModel.pokemon.name "
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars"
-            android:contentDescription="@{`A picture of ` + pokemonViewModel.pokemon.name "/>
+            tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/pokemonName"
@@ -37,11 +36,101 @@
             android:id="@+id/textView2"
             android:layout_width="87dp"
             android:layout_height="34dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="60dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="92dp"
             android:text="@{pokemonViewModel.pokemon.dexNum}"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.812"
+            app:layout_constraintStart_toEndOf="@+id/pokemonSprite"
             app:layout_constraintTop_toBottomOf="@+id/pokemonName" />
+
+        <TextView
+            android:id="@+id/hpStatText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toStartOf="@+id/atkStatText"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/pokemonSprite"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/atkStatText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="48dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/defStatText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="28dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/pokemonSprite"
+            app:layout_constraintTop_toTopOf="@+id/hpStatText" />
+
+        <TextView
+            android:id="@+id/spAtkStatText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/defStatText"
+            app:layout_constraintTop_toBottomOf="@+id/atkStatText" />
+
+        <TextView
+            android:id="@+id/spDefStatText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="9dp"
+            android:text="TextView"
+            app:layout_constraintStart_toEndOf="@+id/pokemonSprite"
+            app:layout_constraintTop_toBottomOf="@+id/defStatText" />
+
+        <TextView
+            android:id="@+id/spdStatText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="49dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/spDefStatText"
+            app:layout_constraintTop_toBottomOf="@+id/spAtkStatText" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="68dp"
+            android:layout_marginTop="44dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pokemonSprite" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="44dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView7"
+            app:layout_constraintTop_toBottomOf="@+id/pokemonSprite" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

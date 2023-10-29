@@ -1,38 +1,58 @@
 package com.example.pokesearch.model
 
 import android.os.Parcelable
+import androidx.databinding.adapters.Converters
+import androidx.lifecycle.LiveData
+import androidx.room.ColumnInfo
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
+import androidx.room.TypeConverters
+import com.example.pokesearch.api.asDatabaseModel
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.RawValue
 
 @Parcelize
-data class Pokemon(
-    val name: String,
-    val dexNum: String,
-    val types: Types,
-    val abilities: Abilities,
-    val moves: ArrayList<Move>,
-    val sprite: String,
-    val stats: Stats
+@Entity
+data class Pokemon (
+    @PrimaryKey
+    @ColumnInfo(name = "name")      val name: String,
+    @ColumnInfo(name = "dexNum")    val dexNum: String,
+    @Embedded val types: Types,
+    @Embedded val abilities: Abilities,
+    //@Embedded val moves: ArrayList<Move>,
+    @ColumnInfo(name = "sprite")       val sprite: String,
+    @Embedded val stats: Stats
+
 ): Parcelable
 
 @Parcelize
 data class Abilities(
-    val ability1:@RawValue String,
-    val ability2: @RawValue String?,
-    val ability3: @RawValue String?): Parcelable
+    @ColumnInfo(name = "ability1")val ability1: String,
+    @ColumnInfo(name = "ability2")val ability2: String?,
+    @ColumnInfo(name = "ability3")val ability3: String?
+): Parcelable
 @Parcelize
-data class Move(val level: @RawValue Int, val name: @RawValue String): Parcelable
+data class Move(
+    @ColumnInfo(name = "moveLevel") val moveLevel: Int,
+    @ColumnInfo(name = "moveName") val moveName: String
+): Parcelable
 
 @Parcelize
-data class Types(val type1: @RawValue String, val type2: @RawValue String?): Parcelable
+data class Types(
+    @ColumnInfo(name = "type1") val type1: String,
+    @ColumnInfo(name = "type2") val type2: String?
+): Parcelable
+
 @Parcelize
 data class Stats(
-    val hp: @RawValue Int,
-    val attack: @RawValue Int,
-    val defense: @RawValue Int,
-    val specialAttack: @RawValue Int,
-    val specialDefense: @RawValue Int,
-    val speed: @RawValue Int) : Parcelable
+    @ColumnInfo(name = "hpStat")    val hp: Int,
+    @ColumnInfo(name = "atkStat")   val attack: Int,
+    @ColumnInfo(name = "defStat")   val defense: Int,
+    @ColumnInfo(name = "spAtkStat") val specialAttack: Int,
+    @ColumnInfo(name = "spDefStat") val specialDefense: Int,
+    @ColumnInfo(name = "spdStat")   val speed: Int) : Parcelable
 
 enum class PokemonTypes {
     NORMAL(),
@@ -96,3 +116,13 @@ val availablePokemon = mapOf(
 
 
 )
+
+/*
+val name: String,
+    val dexNum: String,
+    val types: Types,
+    //val abilities: Abilities,
+    //val moves: ArrayList<Move>,
+    //val sprite: String,
+    //val stats: Stats
+ */

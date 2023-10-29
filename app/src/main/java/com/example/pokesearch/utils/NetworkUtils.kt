@@ -83,7 +83,7 @@ fun parsePokemonJsonResult(jsonResult: JSONObject): Pokemon {
         pokemonDexNum,
         pokemonTypes,
         pokemonAbilities,
-        pokemonMoves,
+        //pokemonMoves,
         pokemonSprite,
         pokemonStats
     )

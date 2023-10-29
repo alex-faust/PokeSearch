@@ -1,49 +1,80 @@
 package com.example.pokesearch.api
 
+import com.example.pokesearch.model.Abilities
 import com.example.pokesearch.model.Move
 import com.example.pokesearch.model.Pokemon
+import com.example.pokesearch.model.Stats
+import com.example.pokesearch.model.Types
 import com.squareup.moshi.JsonClass
 
-
+/*
 @JsonClass(generateAdapter = true)
-data class NetworkPokemonContainer(val pokemon: NetworkPokemon)
+data class NetworkPokemonContainer(val pokemon: NetworkPokemon)*/
 
-@JsonClass(generateAdapter = true)
+/*@JsonClass(generateAdapter = true)
 data class NetworkPokemon(
     val name: String,
-    val dexNum: Int,
-    val types: ArrayList<String?>,
-    val abilities: ArrayList<String?>,
+    val dexNum: String,
+    val types: Types,
+    val abilities: Abilities,
     val moves: ArrayList<Move>,
     val sprite: String,
-    val stats: ArrayList<String?>
-)
+    val stats: Stats
+)*/
 
 /*fun NetworkPokemonContainer.asDomainModel(): Pokemon {
-    return pokemon.map {
-        Pokemon (
-            name = it.name,
-            dexNum = it.dexNum,
-            types = it.types,
-            abilities = it.abilities,
-            moves = it.moves,
-            sprite = it.sprite,
-            stats = it.stats
-        )
-    }
+    return Pokemon(
+        name = pokemon.name,
+        dexNum = pokemon.dexNum,
+        types = pokemon.types,
+        //abilities = pokemon.abilities,
+        //moves = pokemon.moves,
+        //sprite = pokemon.sprite,
+        //stats = pokemon.stats
+    )
+
 }*/
 
-/*
-fun Pokemon.asDatabaseModel(): PokemonDatabase {
-    return map {
-        PokemonDatabase (
-            name = it.name,
-            dexNum = it.dexNum,
-            types = it.types,
-            abilities = it.abilities,
-            moves = it.moves,
-            sprite = it.sprite,
-            stats = it.stats
-        )
-    }
+/*fun LiveData<PokemonDatabase>.asDomainModel(): Pokemon {
+    return Pokemon(
+        name = name,
+        dexNum = this.dexNum,
+        //types = this.types,
+        //abilities = this.abilities,
+        //moves = this.moves,
+        //sprite = this.sprite,
+        //stats = this.stats
+    )
 }*/
+
+
+fun Pokemon.asDatabaseModel(): Pokemon {
+    return Pokemon(
+        name = this.name,
+        dexNum = this.dexNum,
+        types = this.types,
+        abilities = this.abilities,
+        //moves = this.moves,
+        sprite = this.sprite,
+        stats = this.stats
+    )
+}
+
+  /*  fun PokemonDatabase.asDomainModel() : Pokemon {
+        return Pokemon(
+            name = this.name,
+            dexNum = this.dexNum,
+            //types = this.types,
+            //abilities = this.abilities,
+            //moves = this.moves,
+            //sprite = this.sprite,
+            //stats = this.stats
+        )
+    }*/
+
+
+
+
+
+
+
