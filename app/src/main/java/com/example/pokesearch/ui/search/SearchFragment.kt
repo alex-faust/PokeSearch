@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.pokesearch.databinding.SearchFragmentBinding
@@ -28,11 +27,11 @@ class SearchFragment: Fragment() {
 
         binding.searchToAdvanced.setOnClickListener {
             view?.findNavController()?.navigate(
-                SearchFragmentDirections.actionSearchFragmentToAdvancedSearchFragment())
+                SearchFragmentDirections.actionSearchToAdvanced())
         }
-        binding.searchToSearchResults.setOnClickListener {
+        binding.goButton.setOnClickListener {
             view?.findNavController()?.navigate(
-                SearchFragmentDirections.actionSearchFragmentToSearchResultsFragment()
+                SearchFragmentDirections.actionSearchToResults()
             )
         }
 

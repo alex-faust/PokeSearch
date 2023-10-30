@@ -4,22 +4,22 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.pokesearch.model.Pokemon
 
-@Database(entities = [Pokemon::class], version = 1, exportSchema = false)
-abstract class PokemonDatabase: RoomDatabase() {
+
+@Database(entities = [PokemonDatabase::class], version = 1, exportSchema = false)
+abstract class PokeDatabase: RoomDatabase() {
     abstract val pokemonDao: PokemonDao
 }
 
 @Volatile
-private lateinit var INSTANCE: PokemonDatabase
+private lateinit var INSTANCE: PokeDatabase
 
-fun getDatabase(context: Context): PokemonDatabase {
-    synchronized(Pokemon::class.java) {
+fun getDatabase(context: Context): PokeDatabase {
+    synchronized(PokeDatabase::class.java) {
         if (!::INSTANCE.isInitialized) {
             INSTANCE = Room.databaseBuilder(
                 context.applicationContext,
-                PokemonDatabase::class.java, "pokemon.DB"
+                PokeDatabase::class.java, "poke.DB"
             ).build()
         }
     }

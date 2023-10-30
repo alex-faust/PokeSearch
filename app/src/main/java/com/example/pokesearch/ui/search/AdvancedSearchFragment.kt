@@ -22,7 +22,7 @@ class AdvancedSearchFragment: Fragment() {
 
         binding.nextPage.setOnClickListener {
             view?.findNavController()?.navigate(
-                AdvancedSearchFragmentDirections.actionAdvancedSearchFragmentToSearchResultsFragment()
+                AdvancedSearchFragmentDirections.actionAdvancedToSearchResults()
             )
         }
 

@@ -1,17 +1,11 @@
 package com.example.pokesearch.model
 
 import android.os.Parcelable
-import androidx.databinding.adapters.Converters
-import androidx.lifecycle.LiveData
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
-import androidx.room.TypeConverters
-import com.example.pokesearch.api.asDatabaseModel
 import kotlinx.parcelize.Parcelize
-import kotlinx.parcelize.RawValue
 
 @Parcelize
 @Entity
@@ -25,7 +19,14 @@ data class Pokemon (
     @ColumnInfo(name = "sprite")       val sprite: String,
     @Embedded val stats: Stats
 
-): Parcelable
+): Parcelable {
+    companion object {
+        override fun toString(): String {
+            //val mon: Pokemon
+            return ""
+        }
+    }
+}
 
 @Parcelize
 data class Abilities(
@@ -33,6 +34,7 @@ data class Abilities(
     @ColumnInfo(name = "ability2")val ability2: String?,
     @ColumnInfo(name = "ability3")val ability3: String?
 ): Parcelable
+
 @Parcelize
 data class Move(
     @ColumnInfo(name = "moveLevel") val moveLevel: Int,
@@ -47,12 +49,12 @@ data class Types(
 
 @Parcelize
 data class Stats(
-    @ColumnInfo(name = "hpStat")    val hp: Int,
-    @ColumnInfo(name = "atkStat")   val attack: Int,
-    @ColumnInfo(name = "defStat")   val defense: Int,
-    @ColumnInfo(name = "spAtkStat") val specialAttack: Int,
-    @ColumnInfo(name = "spDefStat") val specialDefense: Int,
-    @ColumnInfo(name = "spdStat")   val speed: Int) : Parcelable
+    @ColumnInfo(name = "hpStat")    val hp: String,
+    @ColumnInfo(name = "atkStat")   val attack: String,
+    @ColumnInfo(name = "defStat")   val defense: String,
+    @ColumnInfo(name = "spAtkStat") val specialAttack: String,
+    @ColumnInfo(name = "spDefStat") val specialDefense: String,
+    @ColumnInfo(name = "spdStat")   val speed: String) : Parcelable
 
 enum class PokemonTypes {
     NORMAL(),

@@ -1,17 +1,14 @@
 package com.example.pokesearch.ui.pokemoninfo
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.pokesearch.api.PokemonApi
 import com.example.pokesearch.model.Pokemon
-import com.example.pokesearch.utils.parsePokemonJsonResult
 import kotlinx.coroutines.launch
-import org.json.JSONObject
-import java.lang.Exception
 
-class PokemonInfoViewModel : ViewModel() {
+class PokemonInfoViewModel(pokemon: Pokemon, app: Application) : AndroidViewModel(app) {
 
 
 
@@ -21,15 +18,15 @@ class PokemonInfoViewModel : ViewModel() {
         get() = _pokemon
 
     init {
-        getPokemonName()
+        //getPokemonName()
     }
 
     private fun getPokemonName() {
         viewModelScope.launch {
             try {
-                val jsonResult = PokemonApi.pokemonRetrofitService.getPokemonById(915)
-                val poke = parsePokemonJsonResult(JSONObject(jsonResult))
-                _pokemon.value = poke
+                //val jsonResult = PokemonApi.pokemonRetrofitService.getPokemonById(915)
+                //val poke = parsePokemonJsonResult(JSONObject(jsonResult))
+               // _pokemon.value = poke
                 //Log.i("Pokemon", "The name is ${_pokemon.value.sprite}")
             } catch (e: Exception) {
                 e.localizedMessage

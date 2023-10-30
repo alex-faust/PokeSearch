@@ -11,33 +11,44 @@
         android:label="SearchFragment"
         tools:layout="@layout/search_fragment">
         <action
-            android:id="@+id/action_searchFragment_to_advancedSearchFragment"
+            android:id="@+id/action_searchToAdvanced"
             app:destination="@id/advancedSearchFragment" />
         <action
-            android:id="@+id/action_searchFragment_to_searchResultsFragment"
+            android:id="@+id/action_searchToResults"
             app:destination="@id/searchResultsFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/advancedSearchFragment"
         android:name="com.example.pokesearch.ui.search.AdvancedSearchFragment"
         android:label="AdvancedSearchFragment"
         tools:layout="@layout/advanced_search_fragment">
+
         <action
-            android:id="@+id/action_advancedSearchFragment_to_searchResultsFragment"
+            android:id="@+id/action_advancedToSearchResults"
             app:destination="@id/searchResultsFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/pokemonInfoFragment"
         android:name="com.example.pokesearch.ui.pokemoninfo.PokemonInfoFragment"
         android:label="PokemonInfoFragment"
-        tools:layout="@layout/pokemon_info_fragment"/>
+        tools:layout="@layout/pokemon_info_fragment" >
+        <argument
+            android:name="selectedPokemon"
+            app:argType="com.example.pokesearch.model.Pokemon" />
+    </fragment>
+
+
+
     <fragment
         android:id="@+id/searchResultsFragment"
         android:name="com.example.pokesearch.ui.results.SearchResultsFragment"
         android:label="SearchResultsFragment"
         tools:layout="@layout/search_results_fragment">
+
         <action
-            android:id="@+id/action_searchResultsFragment_to_pokemonInfoFragment"
+            android:id="@+id/action_resultsToInfo"
             app:destination="@id/pokemonInfoFragment" />
     </fragment>
 
