@@ -9,6 +9,7 @@ import com.example.pokesearch.model.Types
 import org.json.JSONObject
 
 
+var pokemonNameSearched = ""
 fun parsePokemonJsonResult(jsonResult: JSONObject): ArrayList<Pokemon> {
 
     val pokemonList = ArrayList<Pokemon>()
@@ -35,7 +36,6 @@ fun parsePokemonJsonResult(jsonResult: JSONObject): ArrayList<Pokemon> {
     }
     pokemonTypes = Types(type1, type2)
 
-
     val abilityAmt = jsonResult.getJSONArray("abilities")
     val ability1 = abilityAmt.getJSONObject(0).getJSONObject("ability").getString("name")
     val ability2: String?
@@ -61,7 +61,6 @@ fun parsePokemonJsonResult(jsonResult: JSONObject): ArrayList<Pokemon> {
    }
 
     val pokemonSprite = jsonResult.getJSONObject("sprites").getJSONObject("other").getJSONObject("official-artwork").getString("front_default")
-
 
     var hpStat = ""
     var atkStat = ""
@@ -96,7 +95,6 @@ fun parsePokemonFromDex(jsonResult: JSONObject): ArrayList<String> {
 
     val pokemonNames = ArrayList<String>()
 
-
     val a = jsonResult.getJSONArray("pokemon_entries")
     val num = a.length()
     Log.i("TAG","There are $num pokemon in this entry")
@@ -107,7 +105,11 @@ fun parsePokemonFromDex(jsonResult: JSONObject): ArrayList<String> {
     return pokemonNames
 }
 
-fun getPokemonsName(): String {
-    //TODO return getting the pokemons name by whatever is in the textbox once i create it
-    return ""
+fun setPokemonSearchedName(pokemonNameRetrieved: String) {
+    pokemonNameSearched = pokemonNameRetrieved
+    Log.i("TAG", "The pokemon's name is ${pokemonNameRetrieved}")
+}
+
+fun retrievePokemonSearchedName(): String {
+    return pokemonNameSearched
 }

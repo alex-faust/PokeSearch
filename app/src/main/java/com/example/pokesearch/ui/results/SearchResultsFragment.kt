@@ -22,6 +22,11 @@ class SearchResultsFragment: Fragment() {
         binding.lifecycleOwner = this.viewLifecycleOwner
         binding.searchResultsViewModel = resultsViewModel
 
+        val searchedPokemon = SearchResultsFragmentArgs
+            .fromBundle(requireArguments()).pokemonNameRetrieved
+
+        binding.pokemonName = searchedPokemon
+
         binding.pokemonRecycler.adapter = PokemonRVAdapter(PokemonRVAdapter.OnClickListener {
             resultsViewModel.displayPokemonDetails(it)
         })

@@ -6,6 +6,9 @@
         <variable
             name="searchResultsViewModel"
             type="com.example.pokesearch.ui.results.SearchResultsViewModel" />
+        <variable
+            name="pokemonName"
+            type="String" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

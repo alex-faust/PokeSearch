@@ -20,9 +20,11 @@ class AdvancedSearchFragment: Fragment() {
         binding.lifecycleOwner = this.viewLifecycleOwner
         binding.advancedViewModel = advSearchViewModel
 
+        val emptyString = ""
+
         binding.nextPage.setOnClickListener {
             view?.findNavController()?.navigate(
-                AdvancedSearchFragmentDirections.actionAdvancedToSearchResults()
+                AdvancedSearchFragmentDirections.actionAdvancedToSearchResults(emptyString)
             )
         }
 

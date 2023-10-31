@@ -39,5 +39,7 @@ class SearchResultsViewModel(app: Application): AndroidViewModel(app) {
     }
 
     val pokemonList: LiveData<List<Pokemon>> = pokemonRepository.pokemonResults
+
+
 }
 

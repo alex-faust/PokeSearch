@@ -8,8 +8,8 @@ import com.example.pokesearch.api.asDatabaseModel
 import com.example.pokesearch.database.PokeDatabase
 import com.example.pokesearch.database.asDomainModel
 import com.example.pokesearch.model.Pokemon
-import com.example.pokesearch.utils.getPokemonsName
 import com.example.pokesearch.utils.parsePokemonJsonResult
+import com.example.pokesearch.utils.retrievePokemonSearchedName
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -21,12 +21,12 @@ class PokemonRepository(private val database: PokeDatabase) {
     private val TAG = "PokemonRepository"
 
     private val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
-    private val name: String = "sprigatito"
-    private val named: String = getPokemonsName()
+    //private val name: String = "sprigatito"
+    private val named: String = retrievePokemonSearchedName()
 
 
     val pokemonResults: LiveData<List<Pokemon>> = database.pokemonDao
-        .getSinglePokemonByName(name).map {
+        .getSinglePokemonByName(named).map {
             it.asDomainModel()
         }
 
@@ -35,7 +35,7 @@ class PokemonRepository(private val database: PokeDatabase) {
     suspend fun savePokemonToDB() {
         withContext(ioDispatcher) {
             try {
-                val pokemonResponse = PokemonApi.pokemonRetrofitService.getPokemonByName(name)
+                val pokemonResponse = PokemonApi.pokemonRetrofitService.getPokemonByName(named)
                 val pokemonList = parsePokemonJsonResult(JSONObject(pokemonResponse))
                 Log.i(TAG, "pokemonList is $pokemonList")
                 database.pokemonDao.insertAllPokemon(*pokemonList.asDatabaseModel())
