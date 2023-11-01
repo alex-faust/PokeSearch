@@ -45,6 +45,9 @@ interface PokemonApiService {
     @GET("pokedex/{value}")
     suspend fun getDex(@Path("value")region: Int): String
 
+    //@GET("pokedex/32")
+    //fun getAllKitakamiPokemonNames(): ArrayList<String>
+
     //get all pokemon in the paldea pokedex
     //https://pokeapi.co/api/v2/pokedex/31/
     //get all pokemon in the kitakami pokedex

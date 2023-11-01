@@ -10,6 +10,8 @@ import org.json.JSONObject
 
 
 var pokemonNameSearched = ""
+//val listOfPokemonAvailable: ArrayList<String> = ArrayList()
+private val TAG = "NetworkUtils"
 fun parsePokemonJsonResult(jsonResult: JSONObject): ArrayList<Pokemon> {
 
     val pokemonList = ArrayList<Pokemon>()
@@ -97,7 +99,6 @@ fun parsePokemonFromDex(jsonResult: JSONObject): ArrayList<String> {
 
     val a = jsonResult.getJSONArray("pokemon_entries")
     val num = a.length()
-    Log.i("TAG","There are $num pokemon in this entry")
     for (i in 0 until num) {
         val name = a.getJSONObject(i).getJSONObject("pokemon_species").getString("name")
         pokemonNames.add(name)
@@ -105,11 +106,30 @@ fun parsePokemonFromDex(jsonResult: JSONObject): ArrayList<String> {
     return pokemonNames
 }
 
+/*fun listForAutocomplete(jsonResult: JSONObject): ArrayList<String> {
+
+    listOfPokemonAvailable
+
+    val a = jsonResult.getJSONArray("pokemon_entries")
+    val num = a.length()
+    for (i in 0 until num) {
+        val name = a.getJSONObject(i).getJSONObject("pokemon_species").getString("name")
+        listOfPokemonAvailable.add(name)
+    }
+    return listOfPokemonAvailable
+}*/
+
 fun setPokemonSearchedName(pokemonNameRetrieved: String) {
     pokemonNameSearched = pokemonNameRetrieved
-    Log.i("TAG", "The pokemon's name is ${pokemonNameRetrieved}")
+    Log.d(TAG, "The pokemon's name is ${pokemonNameRetrieved}")
 }
 
 fun retrievePokemonSearchedName(): String {
     return pokemonNameSearched
 }
+
+/*fun setPokemonAvailableList(pokemonList: ArrayList<String>) {
+    for (i in 0 until pokemonList.size) {
+        listOfPokemonAvailable.updateFor(pokemonList[i])
+    }
+}*/

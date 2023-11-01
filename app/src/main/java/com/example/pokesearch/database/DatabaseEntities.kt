@@ -1,5 +1,6 @@
 package com.example.pokesearch.database
 
+import android.util.Log
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
@@ -22,18 +23,6 @@ data class PokemonDatabase(
     @Embedded val stats: Stats
 )
 
-fun PokemonDatabase.asDomainModel(): Pokemon {
-    return Pokemon (
-        name = this.name,
-        dexNum = this.dexNum,
-        types = this.types,
-        abilities = this.abilities,
-        sprite = this.sprite,
-        stats = this.stats
-    )
-}
-
-//------------------------Advanced Search ----------------------------------------
 fun List<PokemonDatabase>.asDomainModel(): List<Pokemon> {
     return map {
         Pokemon(
@@ -45,4 +34,13 @@ fun List<PokemonDatabase>.asDomainModel(): List<Pokemon> {
             stats = it.stats
         )
     }
+}
+
+fun List<PokemonDatabase>.asArrayList(): ArrayList<String> {
+    val allNames = ArrayList<String>()
+    for (i in indices) {
+        allNames.add(this[i].name)
+        Log.d("DatabaseEntities", "Added is ${this[i]}")
+    }
+    return allNames
 }

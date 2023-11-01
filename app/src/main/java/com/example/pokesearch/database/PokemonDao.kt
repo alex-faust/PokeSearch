@@ -14,8 +14,15 @@ interface PokemonDao {
     @Query("select * FROM pokemondatabase WHERE name = :name")
     fun getSinglePokemonByName(name: String): LiveData<List<PokemonDatabase>>
 
+    @Query("select * FROM pokemondatabase")
+    fun getAllPaldeaPokemon(): LiveData<List<PokemonDatabase>>
+
+    //@Query("select * FROM pokemondatabase")
+    //fun getAllKitakamiPokemon(): LiveData<List<String>>
+
     @Upsert
     fun insertAllPokemon(vararg pokemon: PokemonDatabase)
+
 
     /**
      * Advanced search pokemon

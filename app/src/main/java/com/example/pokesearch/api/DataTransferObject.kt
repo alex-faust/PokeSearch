@@ -32,18 +32,6 @@ fun NetworkPokemonContainer.asDomainModel(): Pokemon {
     )
 }
 
-fun Pokemon.asDatabaseModel(): Pokemon {
-    return Pokemon(
-        name = this.name,
-        dexNum = this.dexNum,
-        types = this.types,
-        abilities = this.abilities,
-        sprite = this.sprite,
-        stats = this.stats
-    )
-}
-//-----------------------------------Advanced Search---------------------------------------
-
 @JsonClass(generateAdapter = true)
 data class NetworkPokemonContainers(val pokemon: List<NetworkPokemon>)
 

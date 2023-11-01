@@ -15,11 +15,6 @@ class SearchResultsViewModel(app: Application): AndroidViewModel(app) {
     private val database = getDatabase(app)
     private val pokemonRepository = PokemonRepository(database)
 
-    private val _pokemonRvList = MutableLiveData<Pokemon>()
-
-    private val pokemonRvList: LiveData<Pokemon>
-        get() = _pokemonRvList
-
     private val _navigateToSelectedPokemon = MutableLiveData<Pokemon?>()
 
     val navigateToSelectedPokemon: MutableLiveData<Pokemon?>
@@ -28,6 +23,7 @@ class SearchResultsViewModel(app: Application): AndroidViewModel(app) {
     init {
         viewModelScope.launch {
             pokemonRepository.savePokemonToDB()
+
         }
     }
     fun displayPokemonDetails(pokemon: Pokemon) {
