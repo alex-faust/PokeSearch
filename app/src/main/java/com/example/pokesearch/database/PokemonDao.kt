@@ -3,7 +3,9 @@ package com.example.pokesearch.database
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
+import androidx.room.RawQuery
 import androidx.room.Upsert
+import androidx.sqlite.db.SupportSQLiteQuery
 
 @Dao
 interface PokemonDao {
@@ -12,7 +14,9 @@ interface PokemonDao {
      * Single search pokemon
      */
     @Query("select * FROM pokemondatabase WHERE name = :name")
-    fun getSinglePokemonByName(name: String): LiveData<List<PokemonDatabase>>
+    fun getPokemonByName(name: String): LiveData<List<PokemonDatabase>>
+
+    //fun getSinglePokemonByName(name: String): LiveData<List<PokemonDatabase>>
 
     @Query("select * FROM pokemondatabase")
     fun getAllPaldeaPokemon(): LiveData<List<PokemonDatabase>>
@@ -20,8 +24,17 @@ interface PokemonDao {
     //@Query("select * FROM pokemondatabase")
     //fun getAllKitakamiPokemon(): LiveData<List<String>>
 
+    //TODO(issue #3)
+    @RawQuery(observedEntities = [PokemonDatabase::class])
+    fun getPokemon(query: SupportSQLiteQuery): LiveData<List<PokemonDatabase>>
+
+
     @Upsert
-    fun insertAllPokemon(vararg pokemon: PokemonDatabase)
+    fun insertPokemon(vararg pokemon: PokemonDatabase)
+
+   // @Upsert
+    //fun insertAllPokemon(vararg pokemon: LiveData<List<Pokemon>>)
+
 
 
     /**

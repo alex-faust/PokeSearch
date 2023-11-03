@@ -23,6 +23,17 @@ data class PokemonDatabase(
     @Embedded val stats: Stats
 )
 
+fun PokemonDatabase.asDomainModel(): Pokemon {
+    return Pokemon (
+        name = name,
+        dexNum = dexNum,
+        types = types,
+        abilities = abilities,
+        sprite = sprite,
+        stats = stats
+    )
+}
+
 fun List<PokemonDatabase>.asDomainModel(): List<Pokemon> {
     return map {
         Pokemon(

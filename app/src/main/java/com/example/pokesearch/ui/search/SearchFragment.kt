@@ -14,14 +14,13 @@ import com.example.pokesearch.R
 import com.example.pokesearch.databinding.SearchFragmentBinding
 import com.example.pokesearch.utils.setPokemonSearchedName
 
-
 class SearchFragment : Fragment() {
 
     val TAG = "SearchFragment"
     private lateinit var binding: SearchFragmentBinding
 
     //private val searchViewModel by viewModels<SearchViewModel>()
-    private lateinit var pokemonNameToRetrieve: String
+    private var pokemonNameToRetrieve = ""
 
     private val searchViewModel: SearchViewModel by lazy {
         ViewModelProvider(this)[SearchViewModel::class.java]
@@ -44,12 +43,11 @@ class SearchFragment : Fragment() {
         val adapter: ArrayAdapter<String> = ArrayAdapter<String>(
             requireContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, nameListForAdapter )
 
-
         val nameList = binding.pokemonAutoText
         nameList.setAdapter(adapter)
 
         nameList.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
-            pokemonNameToRetrieve = ""
+           pokemonNameToRetrieve = ""
            pokemonNameToRetrieve = nameListForAdapter[position].replaceFirstChar { it.lowercase() }
             Log.i(TAG, "$pokemonNameToRetrieve is clicked")
         }

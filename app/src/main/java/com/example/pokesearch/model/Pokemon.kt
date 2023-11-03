@@ -20,14 +20,7 @@ data class Pokemon (
     @ColumnInfo(name = "sprite")       val sprite: String,
     @Embedded val stats: Stats
 
-): Parcelable {
-    companion object {
-        override fun toString(): String {
-            //val mon: Pokemon
-            return ""
-        }
-    }
-}
+): Parcelable
 
 @Parcelize
 data class Abilities(

@@ -4,9 +4,11 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.example.pokesearch.database.getDatabase
+import com.example.pokesearch.model.Pokemon
 import com.example.pokesearch.repository.PokemonRepository
+import kotlinx.coroutines.launch
 
 class SearchViewModel(app: Application): AndroidViewModel(app) {
     private val TAG = "SearchViewModel"
@@ -14,18 +16,16 @@ class SearchViewModel(app: Application): AndroidViewModel(app) {
     private val database = getDatabase(app)
     private val pokemonRepository = PokemonRepository(database)
 
-    private val _paldeaDex = MutableLiveData<List<String>>()
-    val paldeaDex: LiveData<List<String>>
-        get() = _paldeaDex
+    val pokemonSearched: LiveData<List<Pokemon>> = pokemonRepository.pokemonResult
 
     init {
         Log.i(TAG, "init block")
-        /*viewModelScope.launch {
+        viewModelScope.launch {
+            //TODO(issue #1)
+            //val names = getApplication<Application>().resources.getStringArray(R.array.names_for_adapter)
+            //pokemonRepository.addAllPokemonToDatabase(names)
+        }
 
-            _paldeaDex.value = pokemonRepository.getAllPaldeaPokemonNames()
-
-            Log.d(TAG, "The paldeaDex list size is ${_paldeaDex.value?.size} added _paldea info" )
-        }*/
     }
 
 }

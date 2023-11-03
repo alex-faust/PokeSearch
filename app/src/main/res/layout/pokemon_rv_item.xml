@@ -13,17 +13,17 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/pokemonItemLayout"
         android:layout_width="match_parent"
-        android:layout_height="100dp">
+        android:layout_height="97dp">
 
         <ImageView
             android:id="@+id/pokemonResultImage"
             android:layout_width="66dp"
             android:layout_height="68dp"
             android:layout_marginEnd="36dp"
-            app:spriteUrl="@{pokemonItems.sprite}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:spriteUrl="@{pokemonItems.sprite}"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView

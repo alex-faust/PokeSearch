@@ -22,10 +22,13 @@ class SearchResultsViewModel(app: Application): AndroidViewModel(app) {
 
     init {
         viewModelScope.launch {
-            pokemonRepository.savePokemonToDB()
+            //pokemonRepository.savePokemonToDB()
+            //TODO(issue #2)
+            pokemonRepository.pokemonResult
 
         }
     }
+
     fun displayPokemonDetails(pokemon: Pokemon) {
         _navigateToSelectedPokemon.value = pokemon
     }
@@ -34,7 +37,8 @@ class SearchResultsViewModel(app: Application): AndroidViewModel(app) {
         _navigateToSelectedPokemon.value = null
     }
 
-    val pokemonList: LiveData<List<Pokemon>> = pokemonRepository.pokemonResults
+    val pokemonList: LiveData<List<Pokemon>> = pokemonRepository.pokemonResult
+
 
 
 }
