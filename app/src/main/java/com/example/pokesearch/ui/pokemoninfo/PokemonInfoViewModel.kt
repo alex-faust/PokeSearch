@@ -1,14 +1,13 @@
 package com.example.pokesearch.ui.pokemoninfo
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pokesearch.model.Pokemon
 import kotlinx.coroutines.launch
 
-class PokemonInfoViewModel(pokemon: Pokemon, app: Application) : AndroidViewModel(app) {
+class PokemonInfoViewModel : ViewModel() {
 
 
 
@@ -16,6 +15,10 @@ class PokemonInfoViewModel(pokemon: Pokemon, app: Application) : AndroidViewMode
     private val _pokemon = MutableLiveData<Pokemon>()
     val pokemon: LiveData<Pokemon>
         get() = _pokemon
+
+    private val _atkStat = MutableLiveData("ATK")
+    var atkStat: LiveData<String> = _atkStat
+        //get() = _atkStat
 
     init {
         //getPokemonName()
@@ -33,7 +36,6 @@ class PokemonInfoViewModel(pokemon: Pokemon, app: Application) : AndroidViewMode
             }
         }
     }
-
 
 
 

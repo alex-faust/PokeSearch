@@ -1,136 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
+
         <variable
-            name="pokemon"
+            name="pokemonInfo"
             type="com.example.pokesearch.model.Pokemon" />
     </data>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/statMotionLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/pokemonSprite"
-            android:layout_width="200dp"
-            android:layout_height="191dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="104dp"
-            android:contentDescription="@{`A picture of ` + pokemon.name"
-            app:spriteUrl="@{pokemon.sprite}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/pokemonName"
-            android:layout_width="167dp"
-            android:layout_height="41dp"
-            android:layout_marginEnd="16dp"
-            android:text="@{pokemon.name}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/pokemonSprite" />
-
-        <TextView
-            android:id="@+id/pokemonDexNum"
-            android:layout_width="87dp"
-            android:layout_height="34dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="92dp"
-            android:text="@{pokemon.dexNum}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.812"
-            app:layout_constraintStart_toEndOf="@+id/pokemonSprite"
-            app:layout_constraintTop_toBottomOf="@+id/pokemonName" />
-
+        <!-- stat texts -->
         <TextView
             android:id="@+id/hpStatText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="16dp"
-            android:text="@{pokemon.stats.hp}"
-            app:layout_constraintStart_toEndOf="@+id/pokemonSprite"
-            app:layout_constraintTop_toBottomOf="@+id/pokemonDexNum" />
+            style="@style/StatTextStyle"
+            android:layout_marginTop="330dp"
+            android:text="HP"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/atkStatText"
+            style="@style/StatTextStyle"
+            android:layout_marginTop="16dp"
+            android:text="ATK"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/hpStatText" />
+
+        <TextView
+            android:id="@+id/defStatText"
+            style="@style/StatTextStyle"
+            android:layout_marginTop="2dp"
+            android:text="DEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/atkStatText" />
+
+        <TextView
+            android:id="@+id/spAtkStatText"
+            style="@style/StatTextStyle"
+            android:layout_marginTop="16dp"
+            android:text="SpATK"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/defStatText" />
+
+        <TextView
+            android:id="@+id/SpDefStatText"
+            style="@style/StatTextStyle"
+            android:layout_marginTop="16dp"
+            android:text="SpDEF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/spAtkStatText" />
+
+        <TextView
+            android:id="@+id/spdStatText"
+            style="@style/StatTextStyle"
+            android:layout_marginTop="16dp"
+            android:text="SPD"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/SpDefStatText" />
+
+        <ImageView
+            android:id="@+id/hpBar"
+            android:layout_width="12dp"
+            android:layout_height="10dp"
+            android:layout_marginStart="50dp"
+            app:layout_constraintBottom_toBottomOf="@+id/hpStatText"
+            app:layout_constraintStart_toEndOf="@+id/hpStatText"
+            app:layout_constraintTop_toTopOf="@+id/hpStatText"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/stat_test" />
+
+        <ImageView
+
+        android:id="@+id/pokemonSprite"
+        android:layout_width="200dp"
+        android:layout_height="191dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="104dp"
+        android:contentDescription="@{`A picture of ` + pokemonInfo.name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:spriteUrl="@{pokemonInfo.sprite}"
+        tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/pokemonName"
+            android:layout_width="163dp"
+            android:layout_height="36dp"
+            android:layout_marginEnd="16dp"
+            android:text="@{pokemonInfo.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pokemonSprite" />
+
+    <TextView
+        android:id="@+id/pokemonDexNum"
+        android:layout_width="87dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="92dp"
+        android:text="@{pokemonInfo.dexNum}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.812"
+        app:layout_constraintStart_toEndOf="@+id/pokemonSprite"
+        app:layout_constraintTop_toBottomOf="@+id/pokemonName" />
+
+    <TextView
+        android:id="@+id/type1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="44dp"
+        android:text="@{pokemonInfo.types.type1}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pokemonSprite" />
+
+    <TextView
+        android:id="@+id/type2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="44dp"
+        android:text="@{pokemonInfo.types.type2}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/type1"
+        app:layout_constraintTop_toBottomOf="@+id/pokemonSprite" />
+
+        <!-- stats values          -->
+
+        <TextView
+            android:id="@+id/hpStatValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:text="@{pokemon.stats.attack}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.894"
+            android:layout_marginStart="25dp"
+            android:text="@{pokemonInfo.stats.hp}"
+            app:layout_constraintBottom_toBottomOf="@+id/hpStatText"
             app:layout_constraintStart_toEndOf="@+id/hpStatText"
             app:layout_constraintTop_toTopOf="@+id/hpStatText" />
 
         <TextView
-            android:id="@+id/defStatText"
+            android:id="@+id/atkStatValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="36dp"
-            android:text="@{pokemon.stats.defense}"
-            app:layout_constraintStart_toEndOf="@+id/pokemonSprite"
-            app:layout_constraintTop_toTopOf="@+id/hpStatText" />
+            android:layout_marginStart="20dp"
+            android:text="@{pokemonInfo.stats.attack}"
+            app:layout_constraintBottom_toBottomOf="@+id/atkStatText"
+            app:layout_constraintStart_toEndOf="@+id/atkStatText"
+            app:layout_constraintTop_toTopOf="@+id/atkStatText"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/spAtkStatText"
+            android:id="@+id/defStatValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="@{pokemon.stats.specialAttack}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            android:layout_marginStart="21dp"
+            android:text="@{pokemonInfo.stats.defense}"
+            app:layout_constraintBottom_toBottomOf="@+id/defStatText"
             app:layout_constraintStart_toEndOf="@+id/defStatText"
-            app:layout_constraintTop_toBottomOf="@+id/atkStatText" />
+            app:layout_constraintTop_toTopOf="@+id/defStatText"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/spDefStatText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="12dp"
-            android:text="@{pokemon.stats.specialDefense}"
-            app:layout_constraintStart_toEndOf="@+id/pokemonSprite"
-            app:layout_constraintTop_toBottomOf="@+id/defStatText" />
+            android:id="@+id/spAtkStatValue"
+            android:layout_width="0dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="9dp"
+            android:text="@{pokemonInfo.stats.specialAttack}"
+            app:layout_constraintBottom_toBottomOf="@+id/spAtkStatText"
+            app:layout_constraintStart_toEndOf="@+id/spAtkStatText"
+            app:layout_constraintTop_toTopOf="@+id/spAtkStatText"
+            app:layout_constraintVertical_bias="0.6" />
 
         <TextView
-            android:id="@+id/spdStatText"
+            android:id="@+id/spDefStatValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="17dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginEnd="49dp"
-            android:text="@{pokemon.stats.speed}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/spDefStatText"
-            app:layout_constraintTop_toBottomOf="@+id/spAtkStatText" />
+            android:layout_marginStart="10dp"
+            android:text="@{pokemonInfo.stats.specialDefense}"
+            app:layout_constraintBottom_toBottomOf="@+id/SpDefStatText"
+            app:layout_constraintStart_toEndOf="@+id/SpDefStatText"
+            app:layout_constraintTop_toTopOf="@+id/SpDefStatText" />
 
         <TextView
-            android:id="@+id/type1"
+            android:id="@+id/spdStatValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="68dp"
-            android:layout_marginTop="44dp"
-            android:text="@{pokemon.types.type1}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pokemonSprite" />
+            android:layout_marginStart="20dp"
+            android:text="@{pokemonInfo.stats.speed}"
+            app:layout_constraintBottom_toBottomOf="@+id/spdStatText"
+            app:layout_constraintStart_toEndOf="@+id/spdStatText"
+            app:layout_constraintTop_toTopOf="@+id/spdStatText" />
 
-        <TextView
-            android:id="@+id/type2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="44dp"
-            android:text="@{pokemon.types.type2}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/type1"
-            app:layout_constraintTop_toBottomOf="@+id/pokemonSprite" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</layout>
+    </layout>

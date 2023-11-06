@@ -15,7 +15,7 @@
         <item>"Arbok"</item>
         <item>"Arboliva"</item>
         <item>"Arcanine"</item>
-        <item>"Arcanine-hisui"</item>
+        <item>"Arcanine-Hisui"</item>
         <item>"Arctibax"</item>
         <item>"Ariados"</item>
         <item>"Armarouge"</item>
@@ -28,7 +28,8 @@
         <item>"Banette"</item>
         <item>"Barboach"</item>
         <item>"Barraskewda"</item>
-        <item>"Basculegion"</item>
+        <item>"Basculegion-Female"</item>
+        <item>"Basculegion-Male"</item>
         <item>"Baxcalibur"</item>
         <item>"Beartic"</item>
         <item>"Bellibolt"</item>
@@ -45,12 +46,12 @@
         <item>"Breloom"</item>
         <item>"Bronzong"</item>
         <item>"Bronzor"</item>
-        <item>"Brute-bonnet"</item>
+        <item>"Brute-Bonnet"</item>
         <item>"Bruxish"</item>
         <item>"Buizel"</item>
         <item>"Cacnea"</item>
         <item>"Cacturne"</item>
-        <item>"Camerupt"</item>
+        <item>"Camerupt"</item> <!-- 50 -->
         <item>"Capsakid"</item>
         <item>"Carbink"</item>
         <item>"Carkol"</item>
@@ -61,7 +62,6 @@
         <item>"Chansey"</item>
         <item>"Charcadet"</item>
         <item>"Charjabug"</item>
-        <item>"Chewtle"</item>
         <item>"Chewtle"</item>
         <item>"Chi-yu"</item>
         <item>"Chien-pao"</item>
@@ -101,7 +101,7 @@
         <item>"Dipplin"</item>
         <item>"Ditto"</item>
         <item>"Dolliv"</item>
-        <item>"Dondozo"</item>
+        <item>"Dondozo"</item> <!-- 100 -->
         <item>"Donphan"</item>
         <item>"Dragalge"</item>
         <item>"Dragapult"</item>
@@ -124,7 +124,8 @@
         <item>"Eelektrik"</item>
         <item>"Eelektross"</item>
         <item>"Eevee"</item>
-        <item>"Eiscue"</item>
+        <item>"Eiscue-Ice"</item>
+        <item>"Eiscue-Noice"</item>
         <item>"Ekans"</item>
         <item>"Electrode"</item>
         <item>"Espathra"</item>
@@ -150,8 +151,7 @@
         <item>"Florges"</item>
         <item>"Flutter-mane"</item>
         <item>"Fomantis"</item>
-        <item>"Fomantis"</item>
-        <item>"Foongus"</item>
+        <item>"Foongus"</item> <!-- 150 -->
         <item>"Forretress"</item>
         <item>"Fraxure"</item>
         <item>"Frigibax"</item>
@@ -182,6 +182,7 @@
         <item>"Golduck"</item>
         <item>"Golem"</item>
         <item>"Goodra"</item>
+        <item>"Goodra-Hisui</item>
         <item>"Goomy"</item>
         <item>"Gothita"</item>
         <item>"Gothitelle"</item>
@@ -194,19 +195,19 @@
         <item>"Grimer"</item>
         <item>"Grimmsnarl"</item>
         <item>"Growlithe"</item>
+        <item>"Growlithe-Hisui"</item>
         <item>"Grubbin"</item>
         <item>"Grumpig"</item>
         <item>"Gulpin"</item>
         <item>"Gumshoos"</item>
         <item>"Gurdurr"</item>
-        <item>"Gyarados"</item>
+        <item>"Gyarados"</item> <!-- 200 -->
         <item>"Hakamo-o"</item>
         <item>"Happiny"</item>
         <item>"Hariyama"</item>
         <item>"Hatenna"</item>
         <item>"Hatterene"</item>
         <item>"Hattrem"</item>
-        <item>"Haunter"</item>
         <item>"Haunter"</item>
         <item>"Hawlucha"</item>
         <item>"Haxorus"</item>
@@ -224,14 +225,15 @@
         <item>"Igglybuff"</item>
         <item>"Illumise"</item>
         <item>"Impidimp"</item>
-        <item>"Indeedee"</item>
-        <item>"Iron-bundle"</item>
-        <item>"Iron-hands"</item>
-        <item>"Iron-jugulis"</item>
-        <item>"Iron-moth"</item>
-        <item>"Iron-thorns"</item>
-        <item>"Iron-treads"</item>
-        <item>"Iron-valiant"</item>
+        <item>"Indeedee-Male"</item>
+        <item>"Indeedee-Female"</item>
+        <item>"Iron-Bundle"</item>
+        <item>"Iron-Hands"</item>
+        <item>"Iron-Jugulis"</item>
+        <item>"Iron-Moth"</item>
+        <item>"Iron-Thorns"</item>
+        <item>"Iron-Treads"</item>
+        <item>"Iron-Valiant"</item>
         <item>"Jangmo-o"</item>
         <item>"Jigglypuff"</item>
         <item>"Jolteon"</item>
@@ -249,14 +251,14 @@
         <item>"Kricketune"</item>
         <item>"Krokorok"</item>
         <item>"Krookodile"</item>
-        <item>"Lampent"</item>
+        <item>"Lampent"</item> <!-- 250 -->
         <item>"Larvesta"</item>
         <item>"Larvitar"</item>
         <item>"Leafeon"</item>
         <item>"Leavanny"</item>
         <item>"Lechonk"</item>
         <item>"Lilligant"</item>
-        <item>"Lilligant-hisui"</item>
+        <item>"Lilligant-Hisui"</item>
         <item>"Litleo"</item>
         <item>"Litwick"</item>
         <item>"Lokix"</item>
@@ -269,7 +271,9 @@
         <item>"Luvdisc"</item>
         <item>"Luxio"</item>
         <item>"Luxray"</item>
-        <item>"Lycanroc"</item>
+        <item>"Lycanroc-Midday"</item>
+        <item>"Lycanroc-Midnight"</item>
+        <item>"Lycanroc-Dusk"</item>
         <item>"Mabosstiff"</item>
         <item>"Magcargo"</item>
         <item>"Magikarp"</item>
@@ -294,19 +298,20 @@
         <item>"Mienshao"</item>
         <item>"Mightyena"</item>
         <item>"Milotic"</item>
-        <item>"Mimikyu"</item>
+        <item>"Mimikyu-Busted"</item>
+        <item>"Mimikyu-Disguised"</item>
         <item>"Miraidon"</item>
-        <item>"Misdreavus"</item>
+        <item>"Misdreavus"</item> <!-- 300 -->
         <item>"Mismagius"</item>
         <item>"Morgrem"</item>
-        <item>"Morpeko"</item>
-        <item>"Mudbray"</item>
+        <item>"Morpeko-Full-Belly"</item>
+        <item>"Morpeko-Hangry"</item>
         <item>"Mudbray"</item>
         <item>"Mudsdale"</item>
         <item>"Muk"</item>
         <item>"Munchlax"</item>
         <item>"Munkidori"</item>
-        <item>"Murkrow"</item>
+        <item>"Murkrow"</item> <!-- 310 -->
         <item>"Nacli"</item>
         <item>"Naclstack"</item>
         <item>"Ninetales"</item>
@@ -321,7 +326,10 @@
         <item>"Oinkologne"</item>
         <item>"Okidogi"</item>
         <item>"Oranguru"</item>
-        <item>"Oricorio"</item>
+        <item>"Oricorio-Baile"</item>
+        <item>"Oricorio-Pom-Pom"</item>
+        <item>"Oricorio-Pau"</item>
+        <item>"Oricorio-Sensu"</item>
         <item>"Orthworm"</item>
         <item>"Pachirisu"</item>
         <item>"Palafin"</item>
@@ -333,18 +341,17 @@
         <item>"Pawniard"</item>
         <item>"Pelipper"</item>
         <item>"Persian"</item>
-        <item>"Petilil"</item>
+        <item>"Petilil"</item> <!-- 340 -->
         <item>"Phanpy"</item>
         <item>"Phantump"</item>
         <item>"Pichu"</item>
-        <item>"Pikachu"</item>
         <item>"Pikachu"</item>
         <item>"Piloswine"</item>
         <item>"Pincurchin"</item>
         <item>"Pineco"</item>
         <item>"Politoed"</item>
         <item>"Poliwag"</item>
-        <item>"Poliwhirl"</item>
+        <item>"Poliwhirl"</item> <!-- 350 -->
         <item>"Poliwrath"</item>
         <item>"Poltchageist"</item>
         <item>"Polteageist"</item>
@@ -380,13 +387,13 @@
         <item>"Sandile"</item>
         <item>"Sandshrew"</item>
         <item>"Sandslash"</item>
-        <item>"Sandy-shocks"</item>
+        <item>"Sandy-Shocks"</item>
         <item>"Sandygast"</item>
         <item>"Sawsbuck"</item>
         <item>"Scatterbug"</item>
         <item>"Scizor"</item>
         <item>"Scovillain"</item>
-        <item>"Scream-tail"</item>
+        <item>"Scream-Tail"</item>
         <item>"Scyther"</item>
         <item>"Seedot"</item>
         <item>"Sentret"</item>
@@ -394,7 +401,7 @@
         <item>"Sewaddle"</item>
         <item>"Shelgon"</item>
         <item>"Shellder"</item>
-        <item>"Shellos"</item>
+        <item>"Shellos"</item> <!-- 400 -->
         <item>"Shiftry"</item>
         <item>"Shinx"</item>
         <item>"Shroodle"</item>
@@ -412,13 +419,15 @@
         <item>"Slaking"</item>
         <item>"Slakoth"</item>
         <item>"Sliggoo"</item>
-        <item>"Slither-wing"</item>
+        <item>"Slither-Wing"</item>
         <item>"Slowbro"</item>
         <item>"Slowking"</item>
         <item>"Slowpoke"</item>
         <item>"Slugma"</item>
         <item>"Smoliv"</item>
         <item>"Sneasel"</item>
+        <item>"Sneasel-Hisui"</item>
+        <item>"Sneasler"</item>
         <item>"Snom"</item>
         <item>"Snorlax"</item>
         <item>"Snorunt"</item>
@@ -431,7 +440,6 @@
         <item>"Sprigatito"</item>
         <item>"Squawkabilly"</item>
         <item>"Stantler"</item>
-        <item>"Stantler"</item>
         <item>"Staraptor"</item>
         <item>"Staravia"</item>
         <item>"Starly"</item>
@@ -443,7 +451,7 @@
         <item>"Sunkern"</item>
         <item>"Surskit"</item>
         <item>"Swablu"</item>
-        <item>"Swadloon"</item>
+        <item>"Swadloon"</item> <!-- 450 -->
         <item>"Swalot"</item>
         <item>"Swanna"</item>
         <item>"Swinub"</item>
@@ -466,7 +474,8 @@
         <item>"Toxapex"</item>
         <item>"Toxel"</item>
         <item>"Toxicroak"</item>
-        <item>"Toxtricity"</item>
+        <item>"Toxtricity-Amped"</item>
+        <item>"Toxtricity-Low-Key"</item>
         <item>"Trevenant"</item>
         <item>"Tropius"</item>
         <item>"Tsareena"</item>
@@ -474,6 +483,7 @@
         <item>"Tyranitar"</item>
         <item>"Umbreon"</item>
         <item>"Ursaring"</item>
+        <item>"Ursaluna"</item>
         <item>"Vaporeon"</item>
         <item>"Varoom"</item>
         <item>"Veluza"</item>
@@ -491,17 +501,15 @@
         <item>"Vulpix"</item>
         <item>"Wattrel"</item>
         <item>"Weavile"</item>
-        <item>"Weavile-hisui"</item>
-        <item>"Weepinbell"</item>
+        <item>"Weepinbell"</item> <!-- 500 -->
         <item>"Weezing"</item>
-        <item>"Whiscash"</item>
         <item>"Whiscash"</item>
         <item>"Wigglytuff"</item>
         <item>"Wiglett"</item>
         <item>"Wingull"</item>
         <item>"Wo-chien"</item>
         <item>"Wooper"</item>
-        <item>"Wooper-paldea"</item>
+        <item>"Wooper-Paldea"</item>
         <item>"Wugtrio"</item>
         <item>"Yanma"</item>
         <item>"Yanmega"</item>
@@ -509,8 +517,57 @@
         <item>"Zangoose"</item>
         <item>"Zoroark"</item>
         <item>"Zorua"</item>
-        <item>"Zweilous"</item>
+        <item>"Zweilous"</item> <!-- 516 -->
     </string-array>
+    <string-array name="moves_for_adapter">
+
+    </string-array>
+
+    <string-array name="type1_for_adapter">
+        <item>BUG</item>
+        <item>DARK</item>
+        <item>DRAGON</item>
+        <item>ELECTRIC</item>
+        <item>FAIRY</item>
+        <item>FIGHTING</item>
+        <item>FIRE</item>
+        <item>FLYING</item>
+        <item>GHOST</item>
+        <item>GRASS</item>
+        <item>GROUND</item>
+        <item>ICE</item>
+        <item>NORMAL</item>
+        <item>POISON</item>
+        <item>PSYCHIC</item>
+        <item>ROCK</item>
+        <item>STEEL</item>
+        <item>WATER</item>
+    </string-array>
+    <string-array name="type2_for_adapter">
+        <item>NONE</item>
+        <item>NORMAL</item>
+        <item>FIRE</item>
+        <item>WATER</item>
+        <item>GRASS</item>
+        <item>ELECTRIC</item>
+        <item>ICE</item>
+        <item>FIGHTING</item>
+        <item>DRAGON</item>
+        <item>FLYING</item>
+        <item>FAIRY</item>
+        <item>GHOST</item>
+        <item>PSYCHIC</item>
+        <item>BUG</item>
+        <item>GROUND</item>
+        <item>ROCK</item>
+        <item>DARK</item>
+        <item>STEEL</item>
+        <item>POISON</item>
+    </string-array>
+    <string-array name="abilities_for_adapter">
+
+    </string-array>
+
 
 </resources>
 

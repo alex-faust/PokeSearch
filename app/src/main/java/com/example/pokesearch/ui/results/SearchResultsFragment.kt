@@ -9,8 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.pokesearch.databinding.SearchResultsFragmentBinding
 import com.example.pokesearch.utils.PokemonRVAdapter
-import com.example.pokesearch.utils.pokemonNameSearched
-import com.example.pokesearch.utils.setPokemonSearchedName
 
 class SearchResultsFragment: Fragment() {
 
@@ -23,12 +21,6 @@ class SearchResultsFragment: Fragment() {
         binding = SearchResultsFragmentBinding.inflate(inflater)
         binding.lifecycleOwner = this.viewLifecycleOwner
         binding.searchResultsViewModel = resultsViewModel
-
-        val searchedPokemon = SearchResultsFragmentArgs
-            .fromBundle(requireArguments()).pokemonNameRetrieved
-
-        binding.pokemonName = searchedPokemon
-        setPokemonSearchedName(pokemonNameSearched)
 
         binding.pokemonRecycler.adapter = PokemonRVAdapter(PokemonRVAdapter.OnClickListener {
             resultsViewModel.displayPokemonDetails(it)

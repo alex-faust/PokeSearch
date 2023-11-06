@@ -10,70 +10,82 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:id="@+id/advLayout">
 
     <Button
-        android:id="@+id/nextPage"
+        android:id="@+id/andOrBtn"
+        android:layout_width="47dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type1InputLayout" />
+
+    <Button
+        android:id="@+id/advToSearchBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
         android:layout_marginEnd="193dp"
         android:layout_marginBottom="44dp"
-        android:text="goToResults"
+        android:text="SEARCH"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/hasTypeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:text="TextView"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/type1InputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="246dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="140dp"
+        android:hint="-type-"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="148dp" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="62dp" />
+        <AutoCompleteTextView
+            android:id="@+id/type1AutoText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="32dp"
+            android:completionThreshold="3"
+            android:inputType="text"
+            android:labelFor="@id/type1InputLayout"
+            android:textAlignment="center" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="232dp" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/type2InputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="246dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="140dp"
+        android:hint="-type-"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/andOrBtn">
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="130dp"
-        tools:layout_editor_absoluteY="224dp" />
+        <AutoCompleteTextView
+            android:id="@+id/type2AutoText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:completionThreshold="3"
+            android:inputType="text"
+            android:labelFor="@id/type2InputLayout"
+            android:textAlignment="center" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="71dp"
-        android:layout_height="43dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
-        tools:layout_editor_absoluteX="246dp"
-        tools:layout_editor_absoluteY="224dp" />
-
-    <Button
-        android:id="@+id/addStatCheckBtn"
-        android:layout_width="40dp"
-        android:layout_height="41dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="36dp"
-        tools:layout_editor_absoluteY="303dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

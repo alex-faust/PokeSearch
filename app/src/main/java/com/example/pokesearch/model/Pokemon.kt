@@ -6,7 +6,6 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
-import java.util.Collections.addAll
 
 @Parcelize
 @Entity
@@ -55,7 +54,7 @@ enum class PokemonTypes {
     FIRE(),
     WATER(),
     GRASS(),
-    LIGHTNING(),
+    ELECTRIC(),
     ICE(),
     FIGHTING(),
     DRAGON(),

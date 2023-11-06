@@ -8,23 +8,19 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import com.example.pokesearch.R
 import com.example.pokesearch.databinding.SearchFragmentBinding
-import com.example.pokesearch.utils.setPokemonSearchedName
+import com.example.pokesearch.utils.setQuery
 
 class SearchFragment : Fragment() {
 
     val TAG = "SearchFragment"
     private lateinit var binding: SearchFragmentBinding
-
-    //private val searchViewModel by viewModels<SearchViewModel>()
-    private var pokemonNameToRetrieve = ""
-
-    private val searchViewModel: SearchViewModel by lazy {
-        ViewModelProvider(this)[SearchViewModel::class.java]
-    }
+    private val searchViewModel by viewModels<SearchViewModel>()
+    private var searchQuery = " name = "
+    private var nameClicked = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -47,9 +43,9 @@ class SearchFragment : Fragment() {
         nameList.setAdapter(adapter)
 
         nameList.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
-           pokemonNameToRetrieve = ""
-           pokemonNameToRetrieve = nameListForAdapter[position].replaceFirstChar { it.lowercase() }
-            Log.i(TAG, "$pokemonNameToRetrieve is clicked")
+           nameClicked = ""
+           nameClicked = nameListForAdapter[position].replaceFirstChar { it.lowercase() }
+            Log.i(TAG, "$nameClicked is clicked")
         }
 
         binding.searchToAdvanced.setOnClickListener {
@@ -60,9 +56,9 @@ class SearchFragment : Fragment() {
 
 
         binding.goButton.setOnClickListener {
-            setPokemonSearchedName(pokemonNameToRetrieve)
+            setQuery(searchQuery + "\"$nameClicked\"")
             view?.findNavController()?.navigate(
-                SearchFragmentDirections.actionSearchToResults(pokemonNameRetrieved = pokemonNameToRetrieve)
+                SearchFragmentDirections.actionSearchToResults()
             )
 
         }

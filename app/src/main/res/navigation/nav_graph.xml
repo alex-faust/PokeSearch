@@ -50,9 +50,6 @@
         <action
             android:id="@+id/action_resultsToInfo"
             app:destination="@id/pokemonInfoFragment" />
-        <argument
-            android:name="pokemonNameRetrieved"
-            app:argType="string" />
-    </fragment>
+            </fragment>
 
 </navigation>

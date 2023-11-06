@@ -10,10 +10,7 @@ import com.example.pokesearch.model.Types
 import org.json.JSONObject
 
 
-var pokemonNameSearched = ""
-var query: SimpleSQLiteQuery = SimpleSQLiteQuery("")
-
-//val listOfPokemonAvailable: ArrayList<String> = ArrayList()
+private var query = "incorrect query"
 private val TAG = "NetworkUtils"
 fun parsePokemonJsonResult(jsonResult: JSONObject): ArrayList<Pokemon> {
 
@@ -108,20 +105,14 @@ fun parsePokemonFromDex(jsonResult: JSONObject): ArrayList<String> {
     }
     return pokemonNames
 }
-fun setPokemonSearchedName(pokemonNameRetrieved: String) {
-    pokemonNameSearched = pokemonNameRetrieved
-    Log.d(TAG, "The pokemon's name set is ${pokemonNameRetrieved}")
+fun retrieveQuery(): SimpleSQLiteQuery {
+    val fullQuery = "SELECT * FROM pokemondatabase WHERE"
+    val simpleSQLiteQuery = SimpleSQLiteQuery("$fullQuery$query")
+    Log.i(TAG, "the query is: $fullQuery$query")
+    return simpleSQLiteQuery
 }
 
-fun retrievePokemonSearchedName(): String {
-    Log.d(TAG, "The pokemon's name retrieved is $pokemonNameSearched")
-    return pokemonNameSearched
-}
-
-fun retrievePokemonSearchedQuery(): SimpleSQLiteQuery {
-    return query
-}
-
-fun setPokemonSearchedQuery(queryString: SimpleSQLiteQuery) {
+fun setQuery(queryString: String) {
     query = queryString
+
 }

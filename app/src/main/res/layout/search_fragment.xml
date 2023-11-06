@@ -9,82 +9,81 @@
             type="com.example.pokesearch.ui.search.SearchViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
 
-        <Button
-            android:id="@+id/searchToSearchResults"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="168dp"
-            android:layout_marginTop="584dp"
-            android:layout_marginEnd="155dp"
-            android:layout_marginBottom="99dp"
-            android:text="searchToSearchResults"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.805"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/layer_card_background">
 
-        <Button
-            android:id="@+id/searchToAdvanced"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="162dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="162dp"
-            android:text="ADVANCED SEARCH"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.507"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pokemonToSearch" />
 
-        <EditText
-            android:id="@+id/pokemonToSearch"
-            android:layout_width="183dp"
-            android:layout_height="39dp"
-            android:layout_marginStart="84dp"
-            android:layout_marginTop="84dp"
-            app:layout_constraintEnd_toStartOf="@+id/goButton"
-            app:layout_constraintHorizontal_bias="0.217"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nameInputLayout" />
-
-        <Button
-            android:id="@+id/goButton"
-            android:layout_width="53dp"
-            android:layout_height="39dp"
-            android:layout_marginEnd="68dp"
-            android:text="GO"
-            app:layout_constraintBottom_toBottomOf="@+id/pokemonToSearch"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/pokemonToSearch"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/nameInputLayout"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="300dp"
-            android:layout_height="56dp"
-            android:layout_marginStart="140dp"
-            android:layout_marginTop="122dp"
-            android:layout_marginEnd="140dp"
-            android:hint="-enter Pokemon name-"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <AutoCompleteTextView
-                android:id="@+id/pokemonAutoText"
-                android:layout_width="match_parent"
+            <Button
+                android:id="@+id/searchToSearchResults"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:completionThreshold="3"
-                android:inputType="text" />
+                android:layout_marginBottom="36dp"
+                android:text="searchToSearchResults"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:id="@+id/searchToAdvanced"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="162dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="162dp"
+                android:text="ADVANCED SEARCH"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.507"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pokemonToSearch" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <EditText
+                android:id="@+id/pokemonToSearch"
+                android:layout_width="183dp"
+                android:layout_height="39dp"
+                android:layout_marginStart="84dp"
+                android:layout_marginTop="84dp"
+                app:layout_constraintEnd_toStartOf="@+id/goButton"
+                app:layout_constraintHorizontal_bias="0.217"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/nameInputLayout" />
+
+            <Button
+                android:id="@+id/goButton"
+                android:layout_width="53dp"
+                android:layout_height="39dp"
+                android:layout_marginEnd="68dp"
+                android:text="GO"
+                app:layout_constraintBottom_toBottomOf="@+id/pokemonToSearch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/pokemonToSearch"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nameInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="300dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="122dp"
+                android:layout_marginEnd="140dp"
+                android:hint="-enter Pokemon name-"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <AutoCompleteTextView
+                    android:id="@+id/pokemonAutoText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:completionThreshold="3"
+                    android:inputType="text" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
