@@ -9,9 +9,6 @@ import kotlinx.coroutines.launch
 
 class PokemonInfoViewModel : ViewModel() {
 
-
-
-
     private val _pokemon = MutableLiveData<Pokemon>()
     val pokemon: LiveData<Pokemon>
         get() = _pokemon

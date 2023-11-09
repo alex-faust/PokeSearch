@@ -21,8 +21,9 @@ data class NetworkPokemon(
     val stats: Stats
 )
 
-fun NetworkPokemonContainer.asDomainModel(): Pokemon {
+/*fun NetworkPokemonContainer.asDomainModel(): Pokemon {
     return Pokemon (
+        id = this.pokemon.id,
         name = this.pokemon.name,
         dexNum = this.pokemon.dexNum,
         types = this.pokemon.types,
@@ -30,14 +31,15 @@ fun NetworkPokemonContainer.asDomainModel(): Pokemon {
         sprite = this.pokemon.sprite,
         stats = this.pokemon.stats
     )
-}
+}*/
 
 @JsonClass(generateAdapter = true)
 data class NetworkPokemonContainers(val pokemon: List<NetworkPokemon>)
 
-fun NetworkPokemonContainers.asDomainModel(): List<Pokemon> {
+/*fun NetworkPokemonContainers.asDomainModel(): List<Pokemon> {
     return pokemon.map{
         Pokemon (
+            id = it.id,
             name = it.name,
             dexNum = it.dexNum,
             types = it.types,
@@ -46,12 +48,12 @@ fun NetworkPokemonContainers.asDomainModel(): List<Pokemon> {
             stats = it.stats
         )
     }
-
-}
+}*/
 
 fun List<Pokemon>.asDatabaseModel(): Array<PokemonDatabase> {
     return map {
         PokemonDatabase (
+            id = it.id,
             name = it.name,
             dexNum = it.dexNum,
             types = it.types,
@@ -61,7 +63,7 @@ fun List<Pokemon>.asDatabaseModel(): Array<PokemonDatabase> {
     }.toTypedArray()
 }
 
-fun List<PokemonDatabase>.asDomainModel(): List<Pokemon> {
+/*fun List<PokemonDatabase>.asDomainModel(): List<Pokemon> {
     return map {
         Pokemon(
             name = it.name,
@@ -73,7 +75,7 @@ fun List<PokemonDatabase>.asDomainModel(): List<Pokemon> {
             stats = it.stats
         )
     }
-}
+}*/
 
 
 

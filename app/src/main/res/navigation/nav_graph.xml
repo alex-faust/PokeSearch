@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_searchToResults"
             app:destination="@id/searchResultsFragment" />
+        <action
+            android:id="@+id/action_search_to_game"
+            app:destination="@id/gameFragment" />
     </fragment>
 
     <fragment
@@ -51,5 +54,23 @@
             android:id="@+id/action_resultsToInfo"
             app:destination="@id/pokemonInfoFragment" />
             </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.pokesearch.ui.game.GameFragment"
+        android:label="GameFragment"
+        tools:layout="@layout/game_fragment">
+        <action
+            android:id="@+id/action_game_to_maps"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.pokesearch.ui.game.MapsFragment"
+        android:label="MapsFragment"
+        tools:layout="@layout/maps_fragment">
+        <action
+            android:id="@+id/action_mapToGame"
+            app:destination="@id/gameFragment" />
+    </fragment>
 
 </navigation>

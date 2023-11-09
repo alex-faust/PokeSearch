@@ -5,14 +5,16 @@ import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.pokesearch.R
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 @Entity
 data class Pokemon (
     @PrimaryKey
+    @ColumnInfo(name = "id") val id: Int,
     @ColumnInfo(name = "name")      val name: String,
-    @ColumnInfo(name = "dexNum")    val dexNum: String,
+    @ColumnInfo(name = "dexNum")    val dexNum: Int,
     @Embedded val types: Types,
     @Embedded val abilities: Abilities,
     //@Embedded val moves: ArrayList<Move>,
@@ -49,23 +51,24 @@ data class Stats(
     @ColumnInfo(name = "spDefStat") val specialDefense: String,
     @ColumnInfo(name = "spdStat")   val speed: String) : Parcelable
 
-enum class PokemonTypes {
-    NORMAL(),
-    FIRE(),
-    WATER(),
-    GRASS(),
-    ELECTRIC(),
-    ICE(),
-    FIGHTING(),
-    DRAGON(),
-    FLYING(),
-    FAIRY(),
-    GHOST(),
-    PSYCHIC(),
-    BUG(),
-    GROUND(),
-    ROCK(),
-    DARK(),
-    STEEL(),
-    POISON()
+enum class PokemonTypes(val type: String, val drawable: Int) {
+    BUG("bug", R.drawable.bug) ,
+    DARK("dark", R.drawable.dark),
+    DRAGON("dragon", R.drawable.dragon),
+    ELECTRIC("electric", R.drawable.electric),
+    FAIRY("fairy", R.drawable.fairy),
+    FIGHTING("fighting", R.drawable.fighting),
+    FIRE("fire", R.drawable.fire),
+    FLYING("flying", R.drawable.flying),
+    GHOST("ghost", R.drawable.ghost),
+    GRASS("grass", R.drawable.grass),
+    GROUND("ground", R.drawable.ground),
+    ICE("ice", R.drawable.ice),
+    NORMAL("normal", R.drawable.normal),
+    POISON("poison", R.drawable.poison),
+    PSYCHIC("psychic", R.drawable.psychic),
+    ROCK("rock", R.drawable.rock),
+    STEEL("steel", R.drawable.steel),
+    WATER("water", R.drawable.water)
+
 }

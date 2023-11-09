@@ -13,35 +13,13 @@
     android:layout_height="match_parent"
     android:id="@+id/advLayout">
 
-    <Button
-        android:id="@+id/andOrBtn"
-        android:layout_width="47dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/type1InputLayout" />
-
-    <Button
-        android:id="@+id/advToSearchBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="130dp"
-        android:layout_marginEnd="193dp"
-        android:layout_marginBottom="44dp"
-        android:text="SEARCH"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/type1InputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="246dp"
+        android:layout_width="230dp"
         android:layout_height="60dp"
+        android:layout_marginTop="200dp"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="140dp"
         android:hint="-type-"
         android:textAlignment="center"
@@ -64,7 +42,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/type2InputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="246dp"
+        android:layout_width="230dp"
         android:layout_height="60dp"
         android:layout_marginStart="140dp"
         android:layout_marginTop="24dp"
@@ -72,9 +50,9 @@
         android:hint="-type-"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/andOrBtn">
+        app:layout_constraintTop_toBottomOf="@+id/type1InputLayout">
 
         <AutoCompleteTextView
             android:id="@+id/type2AutoText"
@@ -83,8 +61,57 @@
             android:completionThreshold="3"
             android:inputType="text"
             android:labelFor="@id/type2InputLayout"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            tools:layout_editor_absoluteX="98dp"
+            tools:layout_editor_absoluteY="136dp" />
+
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/abilityInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="230dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="52dp"
+        android:hint="-ability-"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/type2InputLayout">
+
+        <AutoCompleteTextView
+            android:id="@+id/abilityAutoText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:completionThreshold="3"
+            android:inputType="text"
+            android:labelFor="@id/abilityInputLayout"
+            android:textAlignment="center"
+            tools:layout_editor_absoluteX="98dp"
+            tools:layout_editor_absoluteY="261dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="100dp" />
+
+    <Button
+        android:id="@+id/advToSearchBtn"
+        style="@style/ButtonStyle"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="44dp"
+        android:text="SEARCH"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/abilityInputLayout"
+        app:layout_constraintVertical_bias="0.764" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

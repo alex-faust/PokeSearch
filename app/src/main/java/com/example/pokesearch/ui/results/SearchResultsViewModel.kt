@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.pokesearch.database.getDatabase
 import com.example.pokesearch.model.Pokemon
+import com.example.pokesearch.model.PokemonTypes
 import com.example.pokesearch.repository.PokemonRepository
 import kotlinx.coroutines.launch
 
@@ -17,15 +18,16 @@ class SearchResultsViewModel(app: Application): AndroidViewModel(app) {
 
     private val _navigateToSelectedPokemon = MutableLiveData<Pokemon?>()
 
+    private val _type = MutableLiveData<PokemonTypes>()
+    val type: LiveData<PokemonTypes>
+        get() = _type
+
     val navigateToSelectedPokemon: MutableLiveData<Pokemon?>
         get() = _navigateToSelectedPokemon
 
     init {
         viewModelScope.launch {
-            //pokemonRepository.savePokemonToDB()
-            //TODO(issue #2)
             pokemonRepository.pokemonResult
-
         }
     }
 

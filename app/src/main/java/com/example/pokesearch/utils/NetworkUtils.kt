@@ -3,7 +3,6 @@ package com.example.pokesearch.utils
 import android.util.Log
 import androidx.sqlite.db.SimpleSQLiteQuery
 import com.example.pokesearch.model.Abilities
-import com.example.pokesearch.model.Move
 import com.example.pokesearch.model.Pokemon
 import com.example.pokesearch.model.Stats
 import com.example.pokesearch.model.Types
@@ -16,13 +15,17 @@ fun parsePokemonJsonResult(jsonResult: JSONObject): ArrayList<Pokemon> {
 
     val pokemonList = ArrayList<Pokemon>()
 
+    val pokemonId = jsonResult.getInt("id")
     val pokemonName = jsonResult.getString("name")
-    val pokemonDexNum = jsonResult.getInt("id").toString()
+    val pokemonDexNum: Int
     val pokemonTypes: Types
     val pokemonAbilities: Abilities
-    val pokemonMoves = ArrayList<Move>()
+    //val pokemonMoves = ArrayList<Move>()
     val pokemonStats: Stats
 
+    pokemonDexNum = jsonResult.getJSONObject("species").getString("url")
+        .substringAfter("https://pokeapi.co/api/v2/pokemon-species/").dropLast(1).toInt()
+    //Log.i(TAG, "the id is $pokemonId and the dexNum is $pokemonDexNum")
 
     val typeAmt = jsonResult.getJSONArray("types")
     var type1 = ""
@@ -54,6 +57,7 @@ fun parsePokemonJsonResult(jsonResult: JSONObject): ArrayList<Pokemon> {
     }
     pokemonAbilities = Abilities(ability1, ability2, ability3)
 
+    /*
     val pm = jsonResult.getJSONArray("moves")
     for (i in 0 until pm.length()) {
         val move = pm.getJSONObject(i).getJSONObject("move").getString("name")
@@ -61,6 +65,7 @@ fun parsePokemonJsonResult(jsonResult: JSONObject): ArrayList<Pokemon> {
             .getJSONObject(0).getInt("level_learned_at")
         pokemonMoves.add(Move(level, move))
    }
+   */
 
     val pokemonSprite = jsonResult.getJSONObject("sprites").getJSONObject("other").getJSONObject("official-artwork").getString("front_default")
 
@@ -82,6 +87,7 @@ fun parsePokemonJsonResult(jsonResult: JSONObject): ArrayList<Pokemon> {
     pokemonStats = Stats(hpStat, atkStat, defStat, spAtkStat, spDefStat, spdStat)
 
     pokemonList.add(Pokemon(
+        pokemonId,
         pokemonName,
         pokemonDexNum,
         pokemonTypes,
@@ -107,7 +113,8 @@ fun parsePokemonFromDex(jsonResult: JSONObject): ArrayList<String> {
 }
 fun retrieveQuery(): SimpleSQLiteQuery {
     val fullQuery = "SELECT * FROM pokemondatabase WHERE"
-    val simpleSQLiteQuery = SimpleSQLiteQuery("$fullQuery$query")
+    val orderQuery = " ORDER By dexNum ASC"
+    val simpleSQLiteQuery = SimpleSQLiteQuery("$fullQuery$query$orderQuery")
     Log.i(TAG, "the query is: $fullQuery$query")
     return simpleSQLiteQuery
 }

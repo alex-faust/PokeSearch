@@ -14,8 +14,9 @@ import com.example.pokesearch.model.Types
 @Entity
 data class PokemonDatabase(
     @PrimaryKey
+    @ColumnInfo(name = "id") val id: Int,
     @ColumnInfo(name = "name")      val name: String,
-    @ColumnInfo(name = "dexNum")    val dexNum: String,
+    @ColumnInfo(name = "dexNum")    val dexNum: Int,
     @Embedded val types: Types,
     @Embedded val abilities: Abilities,
     //@Embedded val moves: ArrayList<Move>,
@@ -23,7 +24,7 @@ data class PokemonDatabase(
     @Embedded val stats: Stats
 )
 
-fun PokemonDatabase.asDomainModel(): Pokemon {
+/*fun PokemonDatabase.asDomainModel(): Pokemon {
     return Pokemon (
         name = name,
         dexNum = dexNum,
@@ -32,11 +33,12 @@ fun PokemonDatabase.asDomainModel(): Pokemon {
         sprite = sprite,
         stats = stats
     )
-}
+}*/
 
 fun List<PokemonDatabase>.asDomainModel(): List<Pokemon> {
     return map {
         Pokemon(
+            id = it.id,
             name = it.name,
             dexNum = it.dexNum,
             types = it.types,

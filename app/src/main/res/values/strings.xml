@@ -1,4 +1,5 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <string name="app_name">PokeSearch</string>
 
     <string-array name="names_for_adapter">
@@ -545,28 +546,285 @@
     </string-array>
     <string-array name="type2_for_adapter">
         <item>NONE</item>
-        <item>NORMAL</item>
-        <item>FIRE</item>
-        <item>WATER</item>
-        <item>GRASS</item>
-        <item>ELECTRIC</item>
-        <item>ICE</item>
-        <item>FIGHTING</item>
-        <item>DRAGON</item>
-        <item>FLYING</item>
-        <item>FAIRY</item>
-        <item>GHOST</item>
-        <item>PSYCHIC</item>
         <item>BUG</item>
-        <item>GROUND</item>
-        <item>ROCK</item>
         <item>DARK</item>
-        <item>STEEL</item>
+        <item>DRAGON</item>
+        <item>ELECTRIC</item>
+        <item>FAIRY</item>
+        <item>FIGHTING</item>
+        <item>FIRE</item>
+        <item>FLYING</item>
+        <item>GHOST</item>
+        <item>GRASS</item>
+        <item>GROUND</item>
+        <item>ICE</item>
+        <item>NORMAL</item>
         <item>POISON</item>
+        <item>PSYCHIC</item>
+        <item>ROCK</item>
+        <item>STEEL</item>
+        <item>WATER</item>
     </string-array>
     <string-array name="abilities_for_adapter">
-
+        <item>"Adaptability"</item>
+        <item>"Aftermath"</item>
+        <item>"Analytic"</item>
+        <item>"Anger-Point"</item>
+        <item>"Anger-Shell"</item>
+        <item>"Anticipation"</item>
+        <item>"Arena-Trap"</item>
+        <item>"Armor-Tail"</item>
+        <item>"Aroma-Veil"</item>
+        <item>"Battery"</item>
+        <item>"Battle-Armor"</item>
+        <item>"Beads-of-Ruin"</item>
+        <item>"Big-Pecks"</item>
+        <item>"Blaze"</item>
+        <item>"Bulletproof"</item>
+        <item>"Cheek-Pouch"</item>
+        <item>"Chlorophyll"</item>
+        <item>"Clear-Body"</item>
+        <item>"Cloud-Nine"</item>
+        <item>"Comatose"</item>
+        <item>"Commander"</item>
+        <item>"Competitive"</item>
+        <item>"Compound-Eyes"</item>
+        <item>"Contrary"</item>
+        <item>"Corrosion"</item>
+        <item>"Costar"</item>
+        <item>"Cud-Chew"</item>
+        <item>"Cursed-Body"</item>
+        <item>"Cute-Charm"</item>
+        <item>"Damp"</item>
+        <item>"Dancer"</item>
+        <item>"Dazzling"</item>
+        <item>"Defiant"</item>
+        <item>"Disguise"</item>
+        <item>"Drizzle"</item>
+        <item>"Drought"</item>
+        <item>"Dry-Skin"</item>
+        <item>"Early-Bird"</item>
+        <item>"Earth-Eater"</item>
+        <item>"Effect-Spore"</item>
+        <item>"Electric-Surge"</item>
+        <item>"Electromorphosis"</item>
+        <item>"Filter"</item>
+        <item>"Flame-Body"</item>
+        <item>"Flare-Boost"</item>
+        <item>"Flash-Fire"</item>
+        <item>"Flower-Veil"</item>
+        <item>"Fluffy"</item>
+        <item>"Forewarn"</item>
+        <item>"Friend-Guard"</item>
+        <item>"Frisk"</item>
+        <item>"Gale-Wings"</item>
+        <item>"Gluttony"</item>
+        <item>"Good-As-Gold"</item>
+        <item>"Gooey"</item>
+        <item>"Grass-Pelt"</item>
+        <item>"Guard-Dog"</item>
+        <item>"Gulp-Missile"</item>
+        <item>"Guts"</item>
+        <item>"Hadron-Engine"</item>
+        <item>"Harvest"</item>
+        <item>"Healer"</item>
+        <item>"Heatproof"</item>
+        <item>"Heavy-Metal"</item>
+        <item>"Honey-Gather"</item>
+        <item>"Hospitality"</item>
+        <item>"Huge-Power"</item>
+        <item>"Hunger-Switch"</item>
+        <item>"Hustle"</item>
+        <item>"Hydration"</item>
+        <item>"Hyper-Cutter"</item>
+        <item>"Ice-Body"</item>
+        <item>"Ice-Face"</item>
+        <item>"Ice-Scales"</item>
+        <item>"Illuminate"</item>
+        <item>"Illusion"</item>
+        <item>"Immunity"</item>
+        <item>"Imposter"</item>
+        <item>"Infiltrator"</item>
+        <item>"Inner-Focus"</item>
+        <item>"Insomnia"</item>
+        <item>"Intimidate"</item>
+        <item>"Iron-Fist"</item>
+        <item>"Justified"</item>
+        <item>"Keen-Eye"</item>
+        <item>"Klutz"</item>
+        <item>"Leaf-Guard"</item>
+        <item>"Levitate"</item>
+        <item>"Light-Metal"</item>
+        <item>"Lightning-Rod"</item>
+        <item>"Limber"</item>
+        <item>"Lingering-Aroma"</item>
+        <item>"Liquid-Ooze"</item>
+        <item>"Magic-Bounce"</item>
+        <item>"Magic-Guard"</item>
+        <item>"Magician"</item>
+        <item>"Magma-Armor"</item>
+        <item>"Magnet-Pull"</item>
+        <item>"Marvel-Scale"</item>
+        <item>"Mega-Launcher"</item>
+        <item>"Merciless"</item>
+        <item>"Minus"</item>
+        <item>"Mirror-Armor"</item>
+        <item>"Mold-Breaker"</item>
+        <item>"Moody"</item>
+        <item>"Moxie"</item>
+        <item>"Multiscale"</item>
+        <item>"Mycelium-Might"</item>
+        <item>"Natural-Cure"</item>
+        <item>"Neutralizing-Gas"</item>
+        <item>"No-Guard"</item>
+        <item>"Oblivious"</item>
+        <item>"Opportunist"</item>
+        <item>"Orichalcum-Pulse"</item>
+        <item>"Overcoat"</item>
+        <item>"Overgrow"</item>
+        <item>"Own-Tempo"</item>
+        <item>"Pickpocket"</item>
+        <item>"Pickup"</item>
+        <item>"Pixilate"</item>
+        <item>"Plus"</item>
+        <item>"Poison-Heal"</item>
+        <item>"Poison-Point"</item>
+        <item>"Poison-Touch"</item>
+        <item>"Power-Spot"</item>
+        <item>"Prankster"</item>
+        <item>"Pressure"</item>
+        <item>"Propeller-Tail"</item>
+        <item>"Protean"</item>
+        <item>"Protosynthesis"</item>
+        <item>"Psychic-Surge"</item>
+        <item>"Punk-Rock"</item>
+        <item>"Pure-Power"</item>
+        <item>"Purifying-Salt"</item>
+        <item>"Quark-Drive"</item>
+        <item>"Queenly-Majesty"</item>
+        <item>"Quick-Feet"</item>
+        <item>"Rain-Dish"</item>
+        <item>"Rattled"</item>
+        <item>"Receiver"</item>
+        <item>"Reckless"</item>
+        <item>"Regenerator"</item>
+        <item>"Ripen"</item>
+        <item>"Rivalry"</item>
+        <item>"Rock-Head"</item>
+        <item>"Rocky-Payload"</item>
+        <item>"Rough-Skin"</item>
+        <item>"Run-Away"</item>
+        <item>"Sand-Force"</item>
+        <item>"Sand-Rush"</item>
+        <item>"Sand-Spit"</item>
+        <item>"Sand-Stream"</item>
+        <item>"Sand-Veil"</item>
+        <item>"Sap-Sipper"</item>
+        <item>"Scrappy"</item>
+        <item>"Seed-Sower"</item>
+        <item>"Serene-Grace"</item>
+        <item>"Shadow-Tag"</item>
+        <item>"Sharpness"</item>
+        <item>"Shed-Skin"</item>
+        <item>"Sheer-Force"</item>
+        <item>"Shell-Armor"</item>
+        <item>"Shield-Dust"</item>
+        <item>"Simple"</item>
+        <item>"Skill-Link"</item>
+        <item>"Slow-Start"</item>
+        <item>"Slush-Rush"</item>
+        <item>"Sniper"</item>
+        <item>"Snow-Cloak"</item>
+        <item>"Snow-Warning"</item>
+        <item>"Solar-Power"</item>
+        <item>"Solid-Rock"</item>
+        <item>"Soundproof"</item>
+        <item>"Speed-Boost"</item>
+        <item>"Stakeout"</item>
+        <item>"Stall"</item>
+        <item>"Stamina"</item>
+        <item>"Static"</item>
+        <item>"Steadfast"</item>
+        <item>"Steam-Engine"</item>
+        <item>"Stench"</item>
+        <item>"Sticky-Hold"</item>
+        <item>"Storm-Drain"</item>
+        <item>"Strong-Jaw"</item>
+        <item>"Sturdy"</item>
+        <item>"Super-Luck"</item>
+        <item>"Supersweet-Syrup"</item>
+        <item>"Supreme-Overlord"</item>
+        <item>"Swarm"</item>
+        <item>"Sweet-Veil"</item>
+        <item>"Swift-Swim"</item>
+        <item>"Sword-of-Ruin"</item>
+        <item>"Symbiosis"</item>
+        <item>"Synchronize"</item>
+        <item>"Tablets-of-Ruin"</item>
+        <item>"Tangled-Feet"</item>
+        <item>"Technician"</item>
+        <item>"Telepathy"</item>
+        <item>"Thermal-Exchange"</item>
+        <item>"Thick-Fat"</item>
+        <item>"Tinted-Lens"</item>
+        <item>"Torrent"</item>
+        <item>"Tough-Claws"</item>
+        <item>"Toxic-Boost"</item>
+        <item>"Toxic-Chain"</item>
+        <item>"Toxic-Debris"</item>
+        <item>"Trace"</item>
+        <item>"Truant"</item>
+        <item>"Unaware"</item>
+        <item>"Unburden"</item>
+        <item>"Unnerve"</item>
+        <item>"Vessel-of-Ruin"</item>
+        <item>"Vital-Spirit"</item>
+        <item>"Volt-Absorb"</item>
+        <item>"Water-Absorb"</item>
+        <item>"Water-Compaction"</item>
+        <item>"Water-Veil"</item>
+        <item>"Weak-Armor"</item>
+        <item>"Well-Baked-Body"</item>
+        <item>"White-Smoke"</item>
+        <item>"Wind-Power"</item>
+        <item>"Wind-Rider"</item>
+        <item>"Wonder-Skin"</item>
+        <item>"Zero-to-Hero"</item>
     </string-array>
+
+    <!-- Geofence Status Strings -->
+    <string name="geofences_added">Pokemon Geofence added.</string>
+    <string name="geofences_removed">Geofences removed.</string>
+    <string name="geofence_entered">Geofence entered.</string>
+    <string name="geofence_over">You have found the pokemon! Congratulations!</string>
+
+    <!-- Geofence Hints Strings -->
+    <string name="not_started_hint"></string>
+    <string name="hint_golden_gate_bridge">Go to a bridge with a name that does not match the color that it is!</string>
+
+    <!-- Geofence Locations Strings -->
+    <string name="found_golden_gate_bridge">Found at the Golden Gate bridge</string>
+
+    <!-- Geofence Error Strings -->
+    <string name="geofence_not_available">Geofence service is not available now</string>
+    <string name="geofence_too_many_geofences">Your app has registered too many geofences</string>
+    <string name="geofence_too_many_pending_intents">
+        You have provided too many PendingIntents to the addGeofences() call
+    </string>
+    <string name="unknown_geofence_error">
+        Unknown error: the Geofence service is not available now
+    </string>
+    <string name="location_required_error">Location services must be enabled for this game.</string>
+
+    <string name="geofences_not_removed">Geofences not removed.</string>
+    <string name="geofences_not_added">Problem in adding geofences.</string>
+    <string name="insufficient_permissions">Insufficient permissions.</string>
+    <string name="geofence_error">There was an error in finding your treasure</string>
+
+    <!-- Notification Strings-->
+    <string name="channel_name">GeofenceStatus</string>
+    <string name="content_text">You found a clue <xliff:g id="geofence_location">%1$s</xliff:g>.</string>
+    <string name="notification_channel_description">Geofence status notification</string>
 
 
 </resources>

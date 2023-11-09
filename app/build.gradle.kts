@@ -5,6 +5,7 @@ plugins {
     id("androidx.navigation.safeargs.kotlin")
     id("kotlin-kapt")
     id("kotlin-parcelize")
+    alias(libs.plugins.com.google.android.libraries.mapsplatform.secrets.gradle.plugin)
 }
 
 android {
@@ -41,9 +42,10 @@ android {
         jvmTarget = "17"
     }
     buildFeatures {
-        compose = true
+        //compose = true
         dataBinding = true
         viewBinding = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -63,7 +65,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation ("androidx.navigation:navigation-fragment-ktx:2.5.20")
     implementation ("androidx.navigation:navigation-ui-ktx:2.7.0")
-    //implementation("androidx.navigation:navigation-safe-args-gradle-plugin:2.7.4")
 
     // Coroutines support for Room and kotlin extensions
     implementation ("androidx.room:room-ktx:2.5.2")
@@ -74,10 +75,13 @@ dependencies {
     implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
 
     // Glide
-    //TODO() figure out if i need these
     implementation ("com.github.bumptech.glide:glide:4.14.2")
     kapt ("com.github.bumptech.glide:compiler:4.14.2")
     implementation ("com.squareup.picasso:picasso:2.8")
+
+    // Maps
+    implementation ("com.google.android.gms:play-services-maps:18.1.0")
+    implementation ("com.google.android.gms:play-services-location:21.0.1")
 
     // Moshi
     implementation ("com.squareup.moshi:moshi:1.13.0")
@@ -97,8 +101,8 @@ dependencies {
     // Timber Logging
     implementation ("com.jakewharton.timber:timber:4.7.1")
 
-
-
+    // WorkManager
+    implementation ("androidx.work:work-runtime-ktx:2.8.1")
 
 
     implementation("androidx.core:core-ktx:1.9.0")

@@ -16,7 +16,8 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
-
+import timber.log.Timber
+import java.util.SortedSet
 
 class PokemonRepository(private val database: PokeDatabase) {
     private val TAG = "PokemonRepository"
@@ -28,11 +29,10 @@ class PokemonRepository(private val database: PokeDatabase) {
         it.asDomainModel()
     }
 
-    //TODO(issue #1)
-    suspend fun addAllPokemonToDatabase(names: Array<String>) {
+    suspend fun addAllPokemonToDatabase(names: Array<String>): Int {
+        var count = 0
         withContext(ioDispatcher) {
-            Log.i(TAG, "the size is ${names.size}")
-
+            Timber.tag(TAG).i("the size is ${names.size}")
             try {
                 for (i in 0 until names.size) { //currently 516
                     databaseNameToAdd = names[i].lowercase()
@@ -40,30 +40,40 @@ class PokemonRepository(private val database: PokeDatabase) {
                         PokemonApi.pokemonRetrofitService.getPokemonByName(databaseNameToAdd)
                     val pokemonList = parsePokemonJsonResult(JSONObject(pokemonResponse))
                     database.pokemonDao.insertPokemon(*pokemonList.asDatabaseModel())
-                    Log.i(TAG, "$i pokemon name is $pokemonList")
+                    count++
                 }
             } catch (th: Throwable) {
-                Log.i(TAG, "All pokemon not added to database.")
-                Log.i(TAG, th.localizedMessage)
+                Timber.tag(TAG).i("All pokemon not added to database.")
+                Timber.tag(TAG).i(th.localizedMessage)
             } catch (cancel: CancellationException) {
-                Log.i(TAG, cancel.localizedMessage)
+                Timber.tag(TAG).i(cancel.localizedMessage)
             }
         }
+        return count
     }
 
-    /*suspend fun getAllAbilities(names: Array<String>) {
+    suspend fun getAllAbilities(names: Array<String>) {
         withContext(ioDispatcher) {
+            val sortedSetList: SortedSet<String> = sortedSetOf<String>("")
             try {
                 for (i in 0 until names.size) {
                     databaseNameToAdd = names[i].lowercase()
                     val pokemonResponse =
                         PokemonApi.pokemonRetrofitService.getPokemonByName(databaseNameToAdd)
                     val pokemonList = parsePokemonJsonResult(JSONObject(pokemonResponse))
-                    database.pokemonDao.insertPokemon(*pokemonList.asDatabaseModel())
+                    val poke1 = pokemonList[0]
+
+                    sortedSetList.add("<item>\"${poke1.abilities.ability1.replaceFirstChar { it.uppercase() }}\"</item> \n")
+                    sortedSetList.add("<item>\"${poke1.abilities.ability2?.replaceFirstChar { it.uppercase() }}\"</item> \n")
+                    sortedSetList.add("<item>\"${poke1.abilities.ability3?.replaceFirstChar { it.uppercase() }}\"</item> \n")
                 }
+                Log.i(TAG, "$sortedSetList")
+            } catch (_: Exception) {
+
             }
         }
-    }*/
+    }
+
 }
 
 

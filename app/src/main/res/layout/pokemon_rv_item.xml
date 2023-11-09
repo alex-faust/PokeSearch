@@ -1,42 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="pokemonItems"
             type="com.example.pokesearch.model.Pokemon" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/pokemonItemLayout"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="97dp">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/pokemonResultImage"
-            android:layout_width="66dp"
-            android:layout_height="68dp"
-            android:layout_marginEnd="36dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:spriteUrl="@{pokemonItems.sprite}"
-            tools:srcCompat="@tools:sample/avatars" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/pokemonItemLayout"
+            android:layout_width="match_parent"
+            android:layout_height="97dp">
 
-        <TextView
-            android:id="@+id/pokemonResultName"
-            android:layout_width="245dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="16dp"
-            android:text="@{pokemonItems.name}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/pokemonResultImage"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.509" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/pokemonResultImage"
+                android:layout_width="80dp"
+                android:layout_height="77dp"
+                android:layout_marginEnd="20dp"
+                android:contentDescription="@{pokemonItems.name + `'s image`}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toEndOf="@+id/pokemonResultName"
+                app:layout_constraintTop_toTopOf="parent"
+                app:spriteUrl="@{pokemonItems.sprite}"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/pokemonResultName"
+                android:layout_width="251dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@{pokemonItems.name}"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/type1Img"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:contentDescription="@{pokemonItems.name + `'s first type`}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pokemonResultName"
+                app:types="@{pokemonItems.types.type1}"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+            <ImageView
+                android:id="@+id/type2Img"
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="48dp"
+                android:contentDescription="@{pokemonItems.name + `'s second type`}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/pokemonResultImage"
+                app:layout_constraintHorizontal_bias="0.675"
+                app:layout_constraintStart_toEndOf="@+id/type1Img"
+                app:layout_constraintTop_toBottomOf="@+id/pokemonResultName"
+                app:layout_constraintVertical_bias="0.0"
+                app:types="@{pokemonItems.types.type2}"
+                tools:srcCompat="@tools:sample/backgrounds/scenic" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

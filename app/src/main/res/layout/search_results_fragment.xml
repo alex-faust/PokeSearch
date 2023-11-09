@@ -6,41 +6,28 @@
         <variable
             name="searchResultsViewModel"
             type="com.example.pokesearch.ui.results.SearchResultsViewModel" />
-        <variable
-            name="pokemonName"
-            type="String" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <Button
-        android:id="@+id/goToInfoPokemon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="155dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="161dp"
-        android:text="goTo info"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_height="match_parent"
+    android:id="@+id/resultsConstraint">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pokemon_recycler"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:layout_width="409dp"
-        android:layout_height="505dp"
+        android:layout_width="336dp"
+        android:layout_height="575dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="1dp"
-        app:listData="@{searchResultsViewModel.pokemonList}"
+        android:layout_marginBottom="6dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/goToInfoPokemon" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:listData="@{searchResultsViewModel.pokemonList}" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
     </layout>

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.pokesearch.databinding.SearchResultsFragmentBinding
+import com.example.pokesearch.ui.CanvasFrame
 import com.example.pokesearch.utils.PokemonRVAdapter
 
 class SearchResultsFragment: Fragment() {
@@ -22,6 +23,10 @@ class SearchResultsFragment: Fragment() {
         binding.lifecycleOwner = this.viewLifecycleOwner
         binding.searchResultsViewModel = resultsViewModel
 
+        val canvasView = CanvasFrame(requireContext())
+        binding.resultsConstraint.addView(canvasView)
+
+
         binding.pokemonRecycler.adapter = PokemonRVAdapter(PokemonRVAdapter.OnClickListener {
             resultsViewModel.displayPokemonDetails(it)
         })
@@ -31,7 +36,6 @@ class SearchResultsFragment: Fragment() {
                 this.findNavController().navigate(SearchResultsFragmentDirections
                     .actionResultsToInfo(it))
                 resultsViewModel.displayPokemonDetailsComplete()
-
             }
         }
         return binding.root

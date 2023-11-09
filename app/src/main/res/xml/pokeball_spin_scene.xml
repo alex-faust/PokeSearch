@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetStart="@id/start"
+        app:constraintSetEnd="@id/end"
+        app:duration="3000">
+        <OnClick
+            app:targetId="@id/pokeball"
+            app:clickAction="toggle"/>
+        <KeyFrameSet>
+            <KeyPosition
+                app:framePosition="1"
+                app:motionTarget="@id/pokeball"
+                app:keyPositionType="parentRelative"
+                app:percentX="0"
+                app:percentY="0"
+                />
+        </KeyFrameSet>
+    </Transition>
+
+
+    <!-- start -->
+
+    <ConstraintSet
+        android:id="@+id/start">
+        <Constraint
+            android:id="@id/pokeball"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </ConstraintSet>
+
+    <!-- end -->
+    <ConstraintSet
+        android:id="@+id/end">
+        <Constraint
+            android:id="@id/pokeball"
+            android:layout_height="200dp"
+            android:layout_width="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </ConstraintSet>
+
+</MotionScene>
