@@ -9,7 +9,7 @@ import com.example.pokesearch.model.Types
 import org.json.JSONObject
 
 
-private var query = "incorrect query"
+private var query = " name = \"pikachu\""
 private val TAG = "NetworkUtils"
 fun parsePokemonJsonResult(jsonResult: JSONObject): ArrayList<Pokemon> {
 

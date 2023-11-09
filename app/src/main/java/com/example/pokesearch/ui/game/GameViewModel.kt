@@ -1,18 +1,23 @@
 package com.example.pokesearch.ui.game
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
 import com.example.pokesearch.R
+import com.example.pokesearch.database.getDatabase
+import com.example.pokesearch.model.Pokemon
+import com.example.pokesearch.repository.PokemonRepository
 import com.example.pokesearch.utils.GeofenceUtils
 
-class GameViewModel(state: SavedStateHandle) : ViewModel() {
+class GameViewModel(app: Application) : AndroidViewModel(app) {
 
-    //private val database = getDatabase(Application().applicationContext)
-    //private val pokemonRepository = PokemonRepository(database)
+    private val database = getDatabase(app)
+    private val pokemonRepository = PokemonRepository(database)
 
-    private val _geofenceIndex = state.getLiveData(GEOFENCE_INDEX_KEY, -1)
+   /* private val _geofenceIndex = state.getLiveData(GEOFENCE_INDEX_KEY, -1)
     private val _hintIndex = state.getLiveData(HINT_INDEX_KEY, 0)
     val geofenceIndex: LiveData<Int>
         get() = _geofenceIndex
@@ -45,8 +50,8 @@ class GameViewModel(state: SavedStateHandle) : ViewModel() {
 
     fun geofenceIsActive() =_geofenceIndex.value == _hintIndex.value
     fun nextGeofenceIndex() = _hintIndex.value ?: 0
-
-    //val randomPokemon: LiveData<List<Pokemon>> = pokemonRepository.pokemonResult
+*/
+    val randomPokemonResult: LiveData<List<Pokemon>> = pokemonRepository.pokemonResult
 }
 
 private const val HINT_INDEX_KEY = "hintIndex"

@@ -41,6 +41,8 @@ class PokemonInfoFragment : Fragment() {
         
         scaler()
 
+        //TODO highest pokemon stat is 255 (for the animation end)
+
 
         return binding.root
     }

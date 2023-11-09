@@ -4,6 +4,8 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.Application
+import android.content.Intent
+import android.content.Intent.getIntent
 import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.os.Build
@@ -13,12 +15,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.SavedStateViewModelFactory
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.pokesearch.R
 import com.example.pokesearch.databinding.GameFragmentBinding
+import com.example.pokesearch.model.Pokemon
 import com.example.pokesearch.ui.CanvasFrame
+import com.example.pokesearch.utils.bindPokemonSprite
 import com.example.pokesearch.utils.setQuery
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.LocationRequest
@@ -26,13 +32,16 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.location.LocationSettingsRequest
 import com.google.android.gms.location.Priority
 import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.Picasso
 import timber.log.Timber
+import java.util.Random
 
 class GameFragment : Fragment() {
 
     private val TAG = "GameFragment"
     private lateinit var binding: GameFragmentBinding
     private lateinit var viewModel: GameViewModel
+    //private val viewModel by viewModels<GameViewModel>()
     private val runningQorLater = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
     private val REQUEST_LOCATION_PERMISSION = 1
     private var searchQuery = " name = "
@@ -49,14 +58,12 @@ class GameFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = GameFragmentBinding.inflate(inflater)
-        checkPermissionsAndStartGeofencing()
 
+        viewModel = ViewModelProvider(this).get(GameViewModel::class.java)
 
-        viewModel = ViewModelProvider(this, SavedStateViewModelFactory(
-            Application(), this)
-        ).get(GameViewModel::class.java)
+        binding.gameViewModel = viewModel
+        //checkPermissionsAndStartGeofencing()
 
-        
         binding.lifecycleOwner = this.viewLifecycleOwner
 
         //geofencingClient = LocationServices.getGeofencingClient(requireActivity())
@@ -64,17 +71,21 @@ class GameFragment : Fragment() {
         val canvasView = CanvasFrame(requireContext())
         binding.gameLayout.addView(canvasView)
 
-        //val names = resources.getStringArray(R.array.names_for_adapter)
         val randomPokemon = resources.getStringArray(R.array.names_for_adapter)
-        val namePicked = "ekans"
+        val random = Random(System.currentTimeMillis())
 
         binding.randomSelectBtn.setOnClickListener{
 
-            val rand = randomPokemon.random()
-            setQuery(searchQuery + "\"$namePicked\"")
+            val index = random.nextInt(randomPokemon.size-1)
 
+            Timber.i(randomPokemon[index])
+            setQuery("$searchQuery\"${randomPokemon[index].lowercase()}\"")
 
+            val id = findNavController().currentDestination?.id
+            findNavController().popBackStack(id!!, true)
+            findNavController().navigate(id)
         }
+
         //TODO() Issue #3
         binding.goToMapBtn.setOnClickListener {
             checkPermissionsAndStartGeofencing()
@@ -245,7 +256,7 @@ class GameFragment : Fragment() {
 */
     companion object {
         internal const val ACTION_GEOFENCE_EVENT =
-            "HuntMainActivity.treasureHunt.action.ACTION_GEOFENCE_EVENT"
+            "ACTION_GEOFENCE_EVENT"
         private const val REQUEST_FOREGROUND_AND_BACKGROUND_PERMISSION_RESULT_CODE = 33
         private const val REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE = 34
         private const val REQUEST_TURN_DEVICE_LOCATION_ON = 29
