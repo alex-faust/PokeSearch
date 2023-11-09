@@ -38,6 +38,8 @@
             android:text="@{pokemonInfo.name}"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/pokemonSprite"
             app:layout_constraintTop_toTopOf="@+id/pokemonSprite" />
 
         <TextView
@@ -101,14 +103,17 @@
 
         <TextView
             android:id="@+id/abilityThree"
+            style="@style/TextStyle"
             android:layout_width="130dp"
             android:layout_height="20dp"
             android:layout_marginTop="10dp"
-            style="@style/TextStyle"
             android:text="@{pokemonInfo.abilities.ability3}"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/abilityTwo"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/abilityTwo"
-            app:layout_constraintTop_toBottomOf="@+id/abilityTwo" />
+            app:layout_constraintTop_toBottomOf="@+id/abilityTwo"
+            app:layout_constraintVertical_bias="0.003" />
 
         <TextView
             android:id="@+id/hpStatText"
@@ -155,8 +160,10 @@
             style="@style/StatTextStyle"
             android:layout_marginTop="10dp"
             android:text="SPD"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/SpDefStatText" />
+            app:layout_constraintTop_toBottomOf="@+id/SpDefStatText"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
             android:id="@+id/hpBar"

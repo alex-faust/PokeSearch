@@ -75,7 +75,7 @@ class GameFragment : Fragment() {
 
 
         }
-
+        //TODO() Issue #3
         binding.goToMapBtn.setOnClickListener {
             checkPermissionsAndStartGeofencing()
 

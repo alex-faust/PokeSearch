@@ -29,6 +29,7 @@ class PokemonRepository(private val database: PokeDatabase) {
         it.asDomainModel()
     }
 
+    //TODO() Issue #2
     suspend fun addAllPokemonToDatabase(names: Array<String>): Int {
         var count = 0
         withContext(ioDispatcher) {
