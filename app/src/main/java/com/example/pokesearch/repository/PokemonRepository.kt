@@ -1,9 +1,13 @@
 package com.example.pokesearch.repository
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import androidx.sqlite.db.SimpleSQLiteQuery
+import androidx.work.CoroutineWorker
+import androidx.work.WorkManager
+import androidx.work.WorkRequest
 import com.example.pokesearch.api.PokemonApi
 import com.example.pokesearch.api.asDatabaseModel
 import com.example.pokesearch.database.PokeDatabase
@@ -33,6 +37,7 @@ class PokemonRepository(private val database: PokeDatabase) {
     suspend fun addAllPokemonToDatabase(names: Array<String>): Int {
         var count = 0
         withContext(ioDispatcher) {
+
             Timber.tag(TAG).i("the size is ${names.size}")
             try {
                 for (i in 0 until names.size) { //currently 516
@@ -74,6 +79,8 @@ class PokemonRepository(private val database: PokeDatabase) {
             }
         }
     }
+
+
 
 }
 

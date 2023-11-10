@@ -44,21 +44,21 @@
 
         <TextView
             android:id="@+id/pokemonDexNum"
+            style="@style/TextStyle"
             android:layout_width="87dp"
             android:layout_height="34dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="55dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="16dp"
             android:text="@{Integer.toString(pokemonInfo.dexNum)}"
-            style="@style/TextStyle"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/pokemonSprite"
             app:layout_constraintTop_toBottomOf="@+id/pokemonName" />
 
         <TextView
             android:id="@+id/poundSign"
             android:layout_width="26dp"
-            android:layout_height="22dp"
+            android:layout_height="24dp"
             android:text="#"
             android:textAlignment="viewEnd"
             android:textSize="20sp"
@@ -71,11 +71,11 @@
             style="@style/TextStyle"
             android:layout_width="130dp"
             android:layout_height="30dp"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="49dp"
             android:text="ABILITIES"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/pokemonSprite"
             app:layout_constraintTop_toBottomOf="@+id/pokemonDexNum" />
 
@@ -166,17 +166,6 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <ImageView
-            android:id="@+id/hpBar"
-            android:layout_width="12dp"
-            android:layout_height="10dp"
-            android:layout_marginStart="50dp"
-            app:layout_constraintBottom_toBottomOf="@+id/hpStatText"
-            app:layout_constraintStart_toEndOf="@+id/hpStatText"
-            app:layout_constraintTop_toTopOf="@+id/hpStatText"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/stat_test" />
-
-        <ImageView
             android:id="@+id/type1"
             android:layout_width="100dp"
             android:layout_height="25dp"
@@ -201,7 +190,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
-            android:text="@{pokemonInfo.stats.hp}"
+            android:text="@{Integer.toString(pokemonInfo.stats.hp)}"
             app:layout_constraintBottom_toBottomOf="@+id/hpStatText"
             app:layout_constraintStart_toEndOf="@+id/hpStatText"
             app:layout_constraintTop_toTopOf="@+id/hpStatText" />
@@ -211,7 +200,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="@{pokemonInfo.stats.attack}"
+            android:text="@{Integer.toString(pokemonInfo.stats.attack)}"
             app:layout_constraintBottom_toBottomOf="@+id/atkStatText"
             app:layout_constraintStart_toEndOf="@+id/atkStatText"
             app:layout_constraintTop_toTopOf="@+id/atkStatText"
@@ -222,7 +211,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="21dp"
-            android:text="@{pokemonInfo.stats.defense}"
+            android:text="@{Integer.toString(pokemonInfo.stats.defense)}"
             app:layout_constraintBottom_toBottomOf="@+id/defStatText"
             app:layout_constraintStart_toEndOf="@+id/defStatText"
             app:layout_constraintTop_toTopOf="@+id/defStatText"
@@ -233,7 +222,7 @@
             android:layout_width="0dp"
             android:layout_height="19dp"
             android:layout_marginStart="9dp"
-            android:text="@{pokemonInfo.stats.specialAttack}"
+            android:text="@{Integer.toString(pokemonInfo.stats.specialAttack)}"
             app:layout_constraintBottom_toBottomOf="@+id/spAtkStatText"
             app:layout_constraintStart_toEndOf="@+id/spAtkStatText"
             app:layout_constraintTop_toTopOf="@+id/spAtkStatText"
@@ -244,7 +233,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="@{pokemonInfo.stats.specialDefense}"
+            android:text="@{Integer.toString(pokemonInfo.stats.specialDefense)}"
             app:layout_constraintBottom_toBottomOf="@+id/SpDefStatText"
             app:layout_constraintStart_toEndOf="@+id/SpDefStatText"
             app:layout_constraintTop_toTopOf="@+id/SpDefStatText" />
@@ -254,10 +243,60 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="@{pokemonInfo.stats.speed}"
+            android:text="@{Integer.toString(pokemonInfo.stats.speed)}"
             app:layout_constraintBottom_toBottomOf="@+id/spdStatText"
             app:layout_constraintStart_toEndOf="@+id/spdStatText"
             app:layout_constraintTop_toTopOf="@+id/spdStatText" />
+
+        <Button
+            android:id="@+id/hpTrackBtn"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/hpStatText"
+            app:layout_constraintStart_toEndOf="@+id/hpStatValue"
+            app:layout_constraintTop_toTopOf="@+id/hpStatText"
+            app:layout_constraintVertical_bias="0.733"
+            style="@style/StatButtonStyle"/>
+
+        <Button
+            android:id="@+id/atkTrackBtn"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/atkStatText"
+            app:layout_constraintStart_toEndOf="@+id/atkStatValue"
+            app:layout_constraintTop_toTopOf="@+id/atkStatText"
+            app:layout_constraintVertical_bias="0.533"
+            style="@style/StatButtonStyle"/>
+
+        <Button
+            android:id="@+id/defTrackBtn"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/defStatText"
+            app:layout_constraintStart_toEndOf="@+id/defStatValue"
+            app:layout_constraintTop_toTopOf="@+id/defStatText"
+            style="@style/StatButtonStyle"/>
+
+        <Button
+            android:id="@+id/spAtkTrackBtn"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/spAtkStatText"
+            app:layout_constraintStart_toEndOf="@+id/spAtkStatValue"
+            app:layout_constraintTop_toTopOf="@+id/spAtkStatText"
+            style="@style/StatButtonStyle"/>
+
+        <Button
+            android:id="@+id/spDefTrackBtn"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/SpDefStatText"
+            app:layout_constraintStart_toEndOf="@+id/spDefStatValue"
+            app:layout_constraintTop_toTopOf="@+id/SpDefStatText"
+            style="@style/StatButtonStyle"/>
+
+        <Button
+            android:id="@+id/spdTrackBtn"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/spdStatText"
+            app:layout_constraintStart_toEndOf="@+id/spdStatValue"
+            app:layout_constraintTop_toTopOf="@+id/spdStatText"
+            style="@style/StatButtonStyle"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

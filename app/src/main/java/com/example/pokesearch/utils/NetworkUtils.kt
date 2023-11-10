@@ -69,20 +69,20 @@ fun parsePokemonJsonResult(jsonResult: JSONObject): ArrayList<Pokemon> {
 
     val pokemonSprite = jsonResult.getJSONObject("sprites").getJSONObject("other").getJSONObject("official-artwork").getString("front_default")
 
-    var hpStat = ""
-    var atkStat = ""
-    var defStat = ""
-    var spAtkStat = ""
-    var spDefStat = ""
-    var spdStat = ""
+    var hpStat = 0
+    var atkStat = 0
+    var defStat = 0
+    var spAtkStat = 0
+    var spDefStat = 0
+    var spdStat = 0
     val ps = jsonResult.getJSONArray("stats")
     for (i in 0 until 6) {
-        hpStat = ps.getJSONObject(0).getString("base_stat")
-        atkStat = ps.getJSONObject(1).getString("base_stat")
-        defStat = ps.getJSONObject(2).getString("base_stat")
-        spAtkStat = ps.getJSONObject(3).getString("base_stat")
-        spDefStat = ps.getJSONObject(4).getString("base_stat")
-        spdStat = ps.getJSONObject(5).getString("base_stat")
+        hpStat = ps.getJSONObject(0).getInt("base_stat")
+        atkStat = ps.getJSONObject(1).getInt("base_stat")
+        defStat = ps.getJSONObject(2).getInt("base_stat")
+        spAtkStat = ps.getJSONObject(3).getInt("base_stat")
+        spDefStat = ps.getJSONObject(4).getInt("base_stat")
+        spdStat = ps.getJSONObject(5).getInt("base_stat")
     }
     pokemonStats = Stats(hpStat, atkStat, defStat, spAtkStat, spDefStat, spdStat)
 

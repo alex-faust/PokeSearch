@@ -70,6 +70,9 @@ dependencies {
     implementation ("androidx.room:room-ktx:2.5.2")
     implementation ("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
 
+    //DataStore
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
     // Design
     implementation ("androidx.appcompat:appcompat:1.6.1")
     implementation ("androidx.constraintlayout:constraintlayout:2.1.4")

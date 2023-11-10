@@ -13,6 +13,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -89,9 +90,9 @@ class GameFragment : Fragment() {
         //TODO() Issue #3
         binding.goToMapBtn.setOnClickListener {
             checkPermissionsAndStartGeofencing()
-
+            //Toast.makeText(requireContext(), "Pressing button", Toast.LENGTH_SHORT).show()
             val action = GameFragmentDirections.actionGameToMaps()
-            view?.findNavController()?.navigate(action)
+            //view?.findNavController()?.navigate(action)
         }
 
         return binding.root
@@ -103,6 +104,7 @@ class GameFragment : Fragment() {
     }
     private fun checkPermissionsAndStartGeofencing() {
         //if (viewModel.geofenceIsActive()) return
+        Timber.i("checkPermissions")
         if (foregroundAndBackgroundLocationPermissionApproved()) {
             checkDeviceLocationSettingsAndStartGeofence()
         } else {
@@ -127,8 +129,7 @@ class GameFragment : Fragment() {
                         REQUEST_TURN_DEVICE_LOCATION_ON
                     )
                 } catch (sendEx: IntentSender.SendIntentException) {
-                    Timber.tag(TAG)
-                        .d( "Error getting location settings resolution: $sendEx.message")
+                    Timber.i("Error getting location settings resolution: $sendEx.message")
                 }
             } else {
                 Snackbar.make(
@@ -142,6 +143,7 @@ class GameFragment : Fragment() {
         locationSettingsResponseTask.addOnCompleteListener {
             if (it.isSuccessful) {
                 //addGeofenceForPokemon()
+                Timber.i("isSuccessful")
             }
         }
     }
@@ -163,6 +165,7 @@ class GameFragment : Fragment() {
             } else {
                 true
             }
+        Timber.i("The values are for foreg $foregroundLocationApproved and backg $backgroundPermissionApproved")
         return foregroundLocationApproved && backgroundPermissionApproved
     }
 
@@ -178,8 +181,9 @@ class GameFragment : Fragment() {
             }
             else -> REQUEST_FOREGROUND_ONLY_PERMISSIONS_REQUEST_CODE
         }
-        Timber.tag(TAG).d("Request foreground only location permission")
+        Timber.i("Request foreground only location permission")
         ActivityCompat.requestPermissions(requireActivity(), permissionsArray, resultCode)
+        Timber.i("Requiring permissions?")
     }
 
     @SuppressLint("MissingPermission")

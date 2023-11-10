@@ -44,15 +44,15 @@ data class Types(
 
 @Parcelize
 data class Stats(
-    @ColumnInfo(name = "hpStat")    val hp: String,
-    @ColumnInfo(name = "atkStat")   val attack: String,
-    @ColumnInfo(name = "defStat")   val defense: String,
-    @ColumnInfo(name = "spAtkStat") val specialAttack: String,
-    @ColumnInfo(name = "spDefStat") val specialDefense: String,
-    @ColumnInfo(name = "spdStat")   val speed: String) : Parcelable
+    @ColumnInfo(name = "hpStat")    val hp: Int,
+    @ColumnInfo(name = "atkStat")   val attack: Int,
+    @ColumnInfo(name = "defStat")   val defense: Int,
+    @ColumnInfo(name = "spAtkStat") val specialAttack: Int,
+    @ColumnInfo(name = "spDefStat") val specialDefense: Int,
+    @ColumnInfo(name = "spdStat")   val speed: Int) : Parcelable
 
 enum class PokemonTypes(val type: String, val drawable: Int) {
-    BUG("bug", R.drawable.bug) ,
+    BUG("bug", R.drawable.bug),
     DARK("dark", R.drawable.dark),
     DRAGON("dragon", R.drawable.dragon),
     ELECTRIC("electric", R.drawable.electric),

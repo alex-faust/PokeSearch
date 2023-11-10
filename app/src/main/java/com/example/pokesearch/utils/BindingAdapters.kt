@@ -46,7 +46,7 @@ fun bindTypes(imgView: ImageView, type: String?) {
         PokemonTypes.ROCK.type -> imgView.setImageResource(PokemonTypes.ROCK.drawable)
         PokemonTypes.STEEL.type -> imgView.setImageResource(PokemonTypes.STEEL.drawable)
         PokemonTypes.WATER.type -> imgView.setImageResource(PokemonTypes.WATER.drawable)
-        "" -> imgView.visibility = View.GONE
+        else -> imgView.visibility = View.GONE
     }
 }
 
