@@ -107,8 +107,8 @@ class GameFragment : Fragment() {
         //TODO() Issue #3
         binding.goToMapBtn.setOnClickListener {
             checkPermissionsAndStartGeofencing()
-            val action = GameFragmentDirections.actionGameToMaps()
-            view?.findNavController()?.navigate(action)
+            //val action = GameFragmentDirections.actionGameToMaps()
+            //view?.findNavController()?.navigate(action)
         }
 
         return binding.root

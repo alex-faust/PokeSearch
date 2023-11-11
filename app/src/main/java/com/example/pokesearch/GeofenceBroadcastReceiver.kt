@@ -55,6 +55,7 @@ class GeofenceBroadcastReceiver: BroadcastReceiver() {
                         NotificationManager::class.java
                     ) as NotificationManager
 
+                    Timber.i("Geofence entered")
                     notificationManager.sendGeofenceEnteredNotification(context, foundIndex)
                 }
             }
@@ -62,4 +63,4 @@ class GeofenceBroadcastReceiver: BroadcastReceiver() {
     }
 }
 
-private const val TAG = "GeofenceReceiver"
+private const val TAG = "Pokemon Geofence"
