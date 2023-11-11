@@ -2,8 +2,10 @@ package com.example.pokesearch.utils
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Build
 import androidx.core.app.NotificationCompat
@@ -11,63 +13,47 @@ import androidx.navigation.NavDeepLinkBuilder
 import com.example.pokesearch.BuildConfig
 import com.example.pokesearch.R
 import com.example.pokesearch.app.MainActivity
+import com.example.pokesearch.ui.game.GameFragment
 
 private const val NOTIFICATION_CHANNEL_ID = BuildConfig.APPLICATION_ID + ".channel"
 
-fun sendNotification(context: Context, foundIndex: Int) {
+fun NotificationManager.sendGeofenceEnteredNotification(context: Context, foundIndex: Int) {
 
-    val contentIntent = Intent(context, MainActivity::class.java)
-    contentIntent.putExtra(GeofenceUtils.EXTRA_GEOFENCE_INDEX, foundIndex)
-    val notificationManager = context
-        .getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    val contentIntent = Intent(context, GameFragment::class.java)
+    contentIntent.putExtra(GeofencingConstants.EXTRA_GEOFENCE_INDEX, foundIndex)
+    val contentPendingIntent = PendingIntent.getActivity(
+        context,
+        NOTIFICATION_ID,
+        contentIntent,
+        PendingIntent.FLAG_UPDATE_CURRENT
+    )
+    val mapImage = BitmapFactory.decodeResource(
+        context.resources,
+        R.drawable.poke_ball
+    )
+    val bigPicStyle = NotificationCompat.BigPictureStyle()
+        .bigPicture(mapImage)
+        .bigLargeIcon(null)
 
-    // We need to create a NotificationChannel associated with our CHANNEL_ID before sending a notification.
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
-        && notificationManager.getNotificationChannel(NOTIFICATION_CHANNEL_ID) == null
-    ) {
-        val name = context.getString(R.string.app_name)
-        val channel = NotificationChannel(
-            NOTIFICATION_CHANNEL_ID,
-            name,
-            NotificationManager.IMPORTANCE_DEFAULT
-        )
-        notificationManager.createNotificationChannel(channel)
-    }
+    // We use the name resource ID from the LANDMARK_DATA along with content_text to create
+    // a custom message when a Geofence triggers.
+    val builder = NotificationCompat.Builder(context, CHANNEL_ID)
+        .setContentTitle(context.getString(R.string.app_name))
+        .setContentText(context.getString(R.string.content_text,
+            context.getString(GeofencingConstants.SF_LANDMARK_DATA[foundIndex].name)))
+        .setPriority(NotificationCompat.PRIORITY_HIGH)
+        .setContentIntent(contentPendingIntent)
+        .setSmallIcon(R.drawable.poke_ball)
+        .setStyle(bigPicStyle)
+        .setLargeIcon(mapImage)
 
-    val pendingIntent = NavDeepLinkBuilder(context.applicationContext)
-        .setComponentName(MainActivity::class.java)
-        .setGraph(R.navigation.nav_graph)
-        .setDestination(R.id.gameFragment)
-        .createPendingIntent()
-
-
-    //create a pending intent that opens MainActivity when the user clicks on the notification
-    //val stackBuilder = TaskStackBuilder.create(context)
-       // .addParentStack(MainActivity::class.java)
-       // .addNextIntent(pendingIntent)
-    //val notificationPendingIntent = stackBuilder
-       // .getPendingIntent(getUniqueId(), PendingIntent.FLAG_UPDATE_CURRENT)
-
-//    build the notification object with the data to be shown
-    val notification = NotificationCompat.Builder(context.applicationContext, NOTIFICATION_CHANNEL_ID)
-        .setSmallIcon(R.mipmap.ic_launcher)
-        .setContentTitle("pokemon.name")
-        .setContentText("pokemon.name")
-        .setContentIntent(pendingIntent)
-        .setAutoCancel(true)
-        .build()
-
-    notificationManager.notify(getUniqueId(), notification)
+    notify(NOTIFICATION_ID, builder.build())
 }
 fun createChannel(context: Context) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         val notificationChannel = NotificationChannel(
-            CHANNEL_ID,
-            context.getString(R.string.channel_name),
-
-            NotificationManager.IMPORTANCE_HIGH
-        )
-            .apply {
+            CHANNEL_ID, context.getString(R.string.channel_name), NotificationManager.IMPORTANCE_HIGH
+        ).apply {
                 setShowBadge(false)
             }
 
@@ -84,4 +70,5 @@ fun createChannel(context: Context) {
 
 private fun getUniqueId() = ((System.currentTimeMillis() % 10000).toInt())
 
-private const val CHANNEL_ID = "Pokemon"
+private const val NOTIFICATION_ID = 33
+private const val CHANNEL_ID = "Pokemon Geofence"

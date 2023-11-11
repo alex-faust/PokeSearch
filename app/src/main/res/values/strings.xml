@@ -801,9 +801,15 @@
     <!-- Geofence Hints Strings -->
     <string name="not_started_hint"></string>
     <string name="hint_golden_gate_bridge">Go to a bridge with a name that does not match the color that it is!</string>
+    <string name="hint_haight_ashbury">Go to a famous cross street on Haight street</string>
+    <string name="hint_fishermans_wharf">Go to a place along Pier 39</string>
+    <string name="hint_dolores_park">Go to huge park in the Mission District</string>
 
     <!-- Geofence Locations Strings -->
     <string name="found_golden_gate_bridge">Found at the Golden Gate bridge</string>
+    <string name="found_haight_ashbury">Found at the Haight Ashbury</string>
+    <string name="found_fishermans_wharf">Found at Fisherman\'s Wharf</string>
+    <string name="found_dolores_park">Found at Dolores Park</string>
 
     <!-- Geofence Error Strings -->
     <string name="geofence_not_available">Geofence service is not available now</string>

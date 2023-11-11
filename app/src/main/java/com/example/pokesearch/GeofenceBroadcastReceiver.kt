@@ -6,9 +6,9 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.content.ContextCompat
 import com.example.pokesearch.ui.game.GameFragment.Companion.ACTION_GEOFENCE_EVENT
-import com.example.pokesearch.utils.GeofenceUtils
+import com.example.pokesearch.utils.GeofencingConstants
 import com.example.pokesearch.utils.errorMessage
-import com.example.pokesearch.utils.sendNotification
+import com.example.pokesearch.utils.sendGeofenceEnteredNotification
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.GeofencingEvent
 import timber.log.Timber
@@ -40,7 +40,7 @@ class GeofenceBroadcastReceiver: BroadcastReceiver() {
                     }
                     // Check geofence against the constants listed in GeofenceUtil.kt to see if the
                     // user has entered any of the locations we track for geofences.
-                    val foundIndex = GeofenceUtils.SF_LANDMARK_DATA.indexOfFirst {
+                    val foundIndex = GeofencingConstants.SF_LANDMARK_DATA.indexOfFirst {
                         it.id == fenceId
                     }
 
@@ -55,7 +55,7 @@ class GeofenceBroadcastReceiver: BroadcastReceiver() {
                         NotificationManager::class.java
                     ) as NotificationManager
 
-                    sendNotification(context, foundIndex)
+                    notificationManager.sendGeofenceEnteredNotification(context, foundIndex)
                 }
             }
         }

@@ -1,25 +1,15 @@
 package com.example.pokesearch.ui.game
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
 import com.example.pokesearch.R
-import com.example.pokesearch.database.getDatabase
-import com.example.pokesearch.model.Pokemon
-import com.example.pokesearch.repository.PokemonRepository
 import com.example.pokesearch.utils.GeofencingConstants
 
-class GameViewModel(app: Application, state: SavedStateHandle) : AndroidViewModel(app) {
-
-    private val database = getDatabase(app)
-    private val pokemonRepository = PokemonRepository(database)
-    val randomPokemonResult: LiveData<List<Pokemon>> = pokemonRepository.pokemonResult
-
-    private val _geofenceIndex = state.getLiveData(GEOFENCE_INDEX_KEY, -1)
+class GeofenceViewModel(state: SavedStateHandle): ViewModel() {
+    /*private val _geofenceIndex = state.getLiveData(GEOFENCE_INDEX_KEY, -1)
     private val _hintIndex = state.getLiveData(HINT_INDEX_KEY, 0)
-
     val geofenceIndex: LiveData<Int>
         get() = _geofenceIndex
 
@@ -49,8 +39,7 @@ class GameViewModel(app: Application, state: SavedStateHandle) : AndroidViewMode
     }
 
     fun geofenceIsActive() =_geofenceIndex.value == _hintIndex.value
-    fun nextGeofenceIndex() = _hintIndex.value ?: 0
-
+    fun nextGeofenceIndex() = _hintIndex.value ?: 0*/
 }
 
 private const val HINT_INDEX_KEY = "hintIndex"

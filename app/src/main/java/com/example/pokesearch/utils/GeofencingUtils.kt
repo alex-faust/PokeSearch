@@ -22,7 +22,7 @@ fun errorMessage(context: Context, errorCode: Int): String {
     }
 }
 data class SFLandmarkDataObject(val id:  String, val hint: Int, val name: Int, val latLong: LatLng)
-internal object GeofenceUtils {
+internal object GeofencingConstants {
 
     val  GEOFENCE_EXPIRATION_IN_MILLISECONDS: Long = TimeUnit.HOURS.toMillis(1)
 
@@ -31,8 +31,22 @@ internal object GeofenceUtils {
             "golden_gate_bridge",
             R.string.hint_golden_gate_bridge,
             R.string.found_golden_gate_bridge,
-            LatLng(37.819927, -122.478256))
-
+            LatLng(37.8200, -122.4783)),
+        SFLandmarkDataObject(
+            "haight_ashbury",
+            R.string.hint_haight_ashbury,
+            R.string.found_haight_ashbury,
+            LatLng(37.7700,-122.4469)),
+        SFLandmarkDataObject(
+            "fishermans_wharf",
+            R.string.hint_fishermans_wharf,
+            R.string.found_fishermans_wharf,
+            LatLng(37.8086,-122.4126)),
+        SFLandmarkDataObject(
+            "dolores_Park",
+            R.string.hint_dolores_park,
+            R.string.found_dolores_park,
+            LatLng(37.7598, -122.4272))
     )
 
 

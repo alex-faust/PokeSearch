@@ -32,6 +32,7 @@ class MapsFragment: Fragment(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
+        map.isMyLocationEnabled
         val sf = LatLng(37.7921469, -122.4175258)
         val zoomLevel = 15f
         map.moveCamera(CameraUpdateFactory.newLatLngZoom(sf, zoomLevel))

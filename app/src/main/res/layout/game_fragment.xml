@@ -7,6 +7,9 @@
         <variable
             name="gameViewModel"
             type="com.example.pokesearch.ui.game.GameViewModel" />
+        <variable
+            name="geoViewModel"
+            type="com.example.pokesearch.ui.game.GameViewModel"/>
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout

@@ -10,15 +10,8 @@
         <OnClick
             app:targetId="@id/pokeball"
             app:clickAction="toggle"/>
-        <KeyFrameSet>
-            <KeyPosition
-                app:framePosition="1"
-                app:motionTarget="@id/pokeball"
-                app:keyPositionType="parentRelative"
-                app:percentX="0"
-                app:percentY="0"
-                />
-        </KeyFrameSet>
+
+
     </Transition>
 
 
@@ -28,8 +21,7 @@
         android:id="@+id/start">
         <Constraint
             android:id="@id/pokeball"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+           android:rotation="0"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -41,8 +33,7 @@
         android:id="@+id/end">
         <Constraint
             android:id="@id/pokeball"
-            android:layout_height="200dp"
-            android:layout_width="200dp"
+            android:rotation="720"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
