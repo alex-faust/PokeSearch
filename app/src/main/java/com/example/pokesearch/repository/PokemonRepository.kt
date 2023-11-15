@@ -1,18 +1,15 @@
 package com.example.pokesearch.repository
 
-import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.map
 import androidx.sqlite.db.SimpleSQLiteQuery
-import androidx.work.CoroutineWorker
-import androidx.work.WorkManager
-import androidx.work.WorkRequest
 import com.example.pokesearch.api.PokemonApi
 import com.example.pokesearch.api.asDatabaseModel
 import com.example.pokesearch.database.PokeDatabase
 import com.example.pokesearch.database.asDomainModel
 import com.example.pokesearch.model.Pokemon
+import com.example.pokesearch.ui.game.GameFragment
 import com.example.pokesearch.utils.parsePokemonJsonResult
 import com.example.pokesearch.utils.retrieveQuery
 import kotlinx.coroutines.CancellationException
@@ -35,6 +32,7 @@ class PokemonRepository(private val database: PokeDatabase) {
 
     //TODO() Issue #2
     suspend fun addAllPokemonToDatabase(names: Array<String>): Int {
+
         var count = 0
         withContext(ioDispatcher) {
 
@@ -55,6 +53,7 @@ class PokemonRepository(private val database: PokeDatabase) {
                 Timber.tag(TAG).i(cancel.localizedMessage)
             }
         }
+
         return count
     }
 

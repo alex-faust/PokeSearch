@@ -77,6 +77,10 @@ dependencies {
     implementation ("androidx.appcompat:appcompat:1.6.1")
     implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
 
+    //Fragment and Activity
+    implementation("androidx.activity:activity-ktx:1.3.1")
+    implementation("androidx.fragment:fragment-ktx:1.3.6")
+
     // Glide
     implementation ("com.github.bumptech.glide:glide:4.14.2")
     kapt ("com.github.bumptech.glide:compiler:4.14.2")

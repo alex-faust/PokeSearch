@@ -46,7 +46,13 @@ internal object GeofencingConstants {
             "dolores_Park",
             R.string.hint_dolores_park,
             R.string.found_dolores_park,
-            LatLng(37.7598, -122.4272))
+            LatLng(37.7598, -122.4272)),
+        SFLandmarkDataObject(
+            "twin_peaks",
+            R.string.hint_twin_peaks,
+            R.string.found_twin_peaks,
+            LatLng(37.7529, -122.4474)
+        )
     )
 
 

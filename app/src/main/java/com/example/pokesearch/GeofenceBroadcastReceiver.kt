@@ -5,7 +5,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import androidx.core.content.ContextCompat
-import com.example.pokesearch.ui.game.GameFragment.Companion.ACTION_GEOFENCE_EVENT
+import com.example.pokesearch.ui.game.MapFragment.Companion.ACTION_GEOFENCE_EVENT
 import com.example.pokesearch.utils.GeofencingConstants
 import com.example.pokesearch.utils.errorMessage
 import com.example.pokesearch.utils.sendGeofenceEnteredNotification
@@ -27,7 +27,7 @@ class GeofenceBroadcastReceiver: BroadcastReceiver() {
             }
             if (geofencingEvent != null) {
                 if (geofencingEvent.geofenceTransition == Geofence.GEOFENCE_TRANSITION_ENTER) {
-                    Timber.tag(TAG).e(context.getString(R.string.geofence_entered))
+                    Timber.tag(TAG).i(context.getString(R.string.geofence_entered))
 
                     val fenceId = when {
                         geofencingEvent.triggeringGeofences?.isNotEmpty() == true ->

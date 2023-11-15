@@ -90,4 +90,10 @@ class SearchFragment : Fragment() {
         return binding.root
     }
 
+    fun isSpinning(spin: Boolean) {
+        if (spin) {
+            //binding.pokeMotion.pokeballMotion.scene.
+        }
+    }
+
 }

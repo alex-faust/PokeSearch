@@ -797,6 +797,13 @@
     <string name="geofences_removed">Geofences removed.</string>
     <string name="geofence_entered">Geofence entered.</string>
     <string name="geofence_over">You have found the pokemon! Congratulations!</string>
+    <string name="select_poi">Please select a point of interest</string>
+    <string name="permission_denied_explanation">You need to grant location permission in order to select the location.</string>
+    <string name="dropped_pin">Dropped Pin</string>
+    <string name="normal_map">Normal Map</string>
+    <string name="hybrid_map">Hybrid Map</string>
+    <string name="satellite_map">Satellite Map</string>
+    <string name="terrain_map">Terrain Map</string>
 
     <!-- Geofence Hints Strings -->
     <string name="not_started_hint"></string>
@@ -804,22 +811,21 @@
     <string name="hint_haight_ashbury">Go to a famous cross street on Haight street</string>
     <string name="hint_fishermans_wharf">Go to a place along Pier 39</string>
     <string name="hint_dolores_park">Go to huge park in the Mission District</string>
+    <string name="hint_twin_peaks">Go to 2 points in the city that are siblings</string>
+
 
     <!-- Geofence Locations Strings -->
-    <string name="found_golden_gate_bridge">Found at the Golden Gate bridge</string>
-    <string name="found_haight_ashbury">Found at the Haight Ashbury</string>
-    <string name="found_fishermans_wharf">Found at Fisherman\'s Wharf</string>
-    <string name="found_dolores_park">Found at Dolores Park</string>
+    <string name="found_golden_gate_bridge">at the Golden Gate bridge</string>
+    <string name="found_haight_ashbury">at the Haight Ashbury</string>
+    <string name="found_fishermans_wharf">at Fisherman\'s Wharf</string>
+    <string name="found_dolores_park">at Dolores Park</string>
+    <string name="found_twin_peaks">at Twin Peaks</string>
 
     <!-- Geofence Error Strings -->
     <string name="geofence_not_available">Geofence service is not available now</string>
     <string name="geofence_too_many_geofences">Your app has registered too many geofences</string>
-    <string name="geofence_too_many_pending_intents">
-        You have provided too many PendingIntents to the addGeofences() call
-    </string>
-    <string name="unknown_geofence_error">
-        Unknown error: the Geofence service is not available now
-    </string>
+    <string name="geofence_too_many_pending_intents">You have provided too many PendingIntents to the addGeofences() call</string>
+    <string name="unknown_geofence_error">Unknown error: the Geofence service is not available now</string>
     <string name="location_required_error">Location services must be enabled for this game.</string>
 
     <string name="geofences_not_removed">Geofences not removed.</string>
@@ -828,9 +834,9 @@
     <string name="geofence_error">There was an error in finding your treasure</string>
 
     <!-- Notification Strings-->
-    <string name="channel_name">GeofenceStatus</string>
-    <string name="content_text">You found a clue <xliff:g id="geofence_location">%1$s</xliff:g>.</string>
-    <string name="notification_channel_description">Geofence status notification</string>
+    <string name="channel_name">Pokemon Geofence Status</string>
+    <string name="content_text">You found a Pokemon <xliff:g id="geofence_location">%1$s</xliff:g>.</string>
+    <string name="notification_channel_description">Pokemon Geofence Status notification</string>
 
 
 </resources>

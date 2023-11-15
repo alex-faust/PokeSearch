@@ -3,6 +3,7 @@ package com.example.pokesearch.ui.game
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.map
 import com.example.pokesearch.R
@@ -19,6 +20,14 @@ class GameViewModel(app: Application, state: SavedStateHandle) : AndroidViewMode
 
     private val _geofenceIndex = state.getLiveData(GEOFENCE_INDEX_KEY, -1)
     private val _hintIndex = state.getLiveData(HINT_INDEX_KEY, 0)
+
+    var pokemonName: String = ""
+    //var pokemonName: String
+     //   get() = _pokemonName
+
+    private val _pokemonSprite = MutableLiveData<String>()
+    val pokemonSprite: LiveData<String>
+        get() = _pokemonSprite
 
     val geofenceIndex: LiveData<Int>
         get() = _geofenceIndex

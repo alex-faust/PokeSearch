@@ -17,6 +17,7 @@ class PokemonWork(appContext: Context, params: WorkerParameters)
 
     private val database = getDatabase(appContext)
     private val pokemonRepository = PokemonRepository(database)
+
     override suspend fun doWork(): Result {
         Timber.i("Starting work...")
         val names = applicationContext.resources.getStringArray(R.array.names_for_adapter)

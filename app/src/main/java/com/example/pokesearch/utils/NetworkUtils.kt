@@ -11,6 +11,7 @@ import org.json.JSONObject
 
 private var query = " name = \"pikachu\""
 private val TAG = "NetworkUtils"
+private var spinning: Boolean = false
 fun parsePokemonJsonResult(jsonResult: JSONObject): ArrayList<Pokemon> {
 
     val pokemonList = ArrayList<Pokemon>()
@@ -121,5 +122,5 @@ fun retrieveQuery(): SimpleSQLiteQuery {
 
 fun setQuery(queryString: String) {
     query = queryString
-
 }
+

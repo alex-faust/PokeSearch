@@ -6,9 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map
 import com.example.pokesearch.R
 import com.example.pokesearch.utils.GeofencingConstants
+import timber.log.Timber
 
 class GeofenceViewModel(state: SavedStateHandle): ViewModel() {
-    /*private val _geofenceIndex = state.getLiveData(GEOFENCE_INDEX_KEY, -1)
+    private val _geofenceIndex = state.getLiveData(GEOFENCE_INDEX_KEY, -1)
     private val _hintIndex = state.getLiveData(HINT_INDEX_KEY, 0)
     val geofenceIndex: LiveData<Int>
         get() = _geofenceIndex
@@ -32,14 +33,17 @@ class GeofenceViewModel(state: SavedStateHandle): ViewModel() {
 
     fun updateHint(currentIndex: Int) {
         _hintIndex.value = currentIndex+1
+        Timber.i("Geofence ${currentIndex+1}")
+
     }
 
     fun geofenceActivated() {
         _geofenceIndex.value = _hintIndex.value
+        Timber.i("Geofence activated")
     }
 
     fun geofenceIsActive() =_geofenceIndex.value == _hintIndex.value
-    fun nextGeofenceIndex() = _hintIndex.value ?: 0*/
+    fun nextGeofenceIndex() = _hintIndex.value ?: 0
 }
 
 private const val HINT_INDEX_KEY = "hintIndex"

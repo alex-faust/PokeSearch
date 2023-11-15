@@ -65,11 +65,11 @@
     </fragment>
     <fragment
         android:id="@+id/mapsFragment"
-        android:name="com.example.pokesearch.ui.game.MapsFragment"
+        android:name="com.example.pokesearch.ui.game.MapFragment"
         android:label="MapsFragment"
-        tools:layout="@layout/maps_fragment">
+        tools:layout="@layout/map_fragment">
         <action
-            android:id="@+id/action_mapToGame"
+            android:id="@+id/action_mapsToGame"
             app:destination="@id/gameFragment" />
     </fragment>
 

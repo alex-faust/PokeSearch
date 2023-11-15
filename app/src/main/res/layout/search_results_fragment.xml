@@ -15,8 +15,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pokemon_recycler"
-        android:layout_width="336dp"
-        android:layout_height="575dp"
+        android:layout_width="332dp"
+        android:layout_height="522dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="1dp"
@@ -27,6 +27,7 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.235"
         app:listData="@{searchResultsViewModel.pokemonList}" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
